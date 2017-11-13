@@ -1,30 +1,60 @@
 <!DOCTYPE html>
 
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
 
-    <script th:src="@{/webjars/jquery/jquery.min.js}"
+		<script th:src="@{/webjars/jquery/jquery.min.js}"
             src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script th:src="@{/webjars/Semantic-UI/semantic.min.js}"
+		<script th:src="@{/webjars/Semantic-UI/semantic.min.js}"
             src="http://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.js"></script>
-    <link th:href="@{/webjars/Semantic-UI/semantic.min.css}" rel="stylesheet"
+		<link th:href="@{/webjars/Semantic-UI/semantic.min.css}" rel="stylesheet"
           href="http://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.css" type="text/css"/>
-    <link th:href="@{/resources/css/style.css}" rel="stylesheet"
+		<link th:href="@{/resources/css/style.css}" rel="stylesheet"
           href="../static/resources/css/style.css" type="text/css"/>
 
-     <title th:text="#{calendar.title}">Kalender</title>
-</head>
-<header>
-<nav th:include="navigation :: navigation"></nav>
-</header>
-
+		<title th:text="#{calendar.title}">Kalender</title>
+	</head>
 <body>
-<center>
-<div>
-<iframe src="https://calendar.google.com/calendar/embed?showPrint=0&amp;showTz=0&amp;height=600&amp;wkst=2&amp;hl=de&amp;bgcolor=%23FFFFFF&amp;src=549k8g4q2bbegde74upkt5bs3o%40group.calendar.google.com&amp;color=%236B3304&amp;ctz=Europe%2FBerlin" style="border-width:0" width="800" height="600" frameborder="0" scrolling="no">
-</iframe>
-</div>
-</center>
-</body>
+	<div>
+		<header>
+       
+		</header>
+	<nav th:include="navigation :: navigation"></nav>
+
+	</div>	
+			<div>
+				<iframe src="https://calendar.google.com/calendar/embed?showPrint=0&amp;showTz=0&amp;height=600&amp;wkst=2&amp;hl=de&amp;bgcolor=%23FFFFFF&amp;src=549k8g4q2bbegde74upkt5bs3o%40group.calendar.google.com&amp;color=%236B3304&amp;ctz=Europe%2FBerlin" style="border-width:0" width="800" height="600" frameborder="0" scrolling="no">
+				</iframe>
+			</div>
+			
+			<table class="ui celled table">
+            <thead>
+            <tr>
+                <th th:text="#{date.datum}">Datum</th>
+                <th th:text="#{destination.ziel}">Lieferziel</th>
+               
+            </tr>
+            </thead>
+            <tbody th:remove="all-but-first">
+
+            <tr th:each="item : ${cart} ">
+                <td th:text="${item.productName}">21.11.2017</td>
+                <td th:text="${item.quantity}">Bestellung Nr 1</td>
+              
+            </tr>
+            <tr>
+                <td>03.04.2018</td>
+                <td>Bestellung Nr 2</td>
+                
+            </tr>
+            <tr>
+                <td>12.05.2018</td>
+                <td>Bestellung Nr 3</td>
+                
+            </tr>
+        
+				</tbody>
+			</table>
+		</body>
 </html>

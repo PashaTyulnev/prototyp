@@ -13,12 +13,12 @@
     <link th:href="@{/resources/css/style.css}" rel="stylesheet"
           href="../static/resources/css/style.css" type="text/css"/>
 
-    <title th:text="#{cart.title}">Warenkorb</title>
+
 </head>
 <body>
 <div class="ui container">
     <header>
-        <h1 th:text="#{cart.title}">Warenkorb</h1>
+       
     </header>
     <nav th:include="navigation :: navigation"></nav>
 
@@ -34,25 +34,21 @@
             <tbody th:remove="all-but-first">
 
             <tr th:each="item : ${cart} ">
-                <td th:text="${item.productName}">Last Action Hero</td>
-                <td th:text="${item.quantity}">10</td>
-                <td th:text="${{item.price}}">10 Euro</td>
+                <td th:text="${item.productName}">21.11.2017</td>
+                <td th:text="${item.quantity}">Bestellung Nr 1</td>
+              
             </tr>
             <tr>
-                <td>Last Action Hero</td>
-                <td>10</td>
-                <td>10 Euro</td>
+                <td>03.04.2018</td>
+                <td>Bestellung Nr 2</td>
+                
             </tr>
             <tr>
-                <td>Last Action Hero</td>
-                <td>10</td>
-                <td>10 Euro</td>
+                <td>12.05.2018</td>
+                <td>Bestellung Nr 3</td>
+                
             </tr>
-            <tr>
-                <td>Last Action Hero</td>
-                <td>10</td>
-                <td>10 Euro</td>
-            </tr>
+        
             </tbody>
         </table>
 
