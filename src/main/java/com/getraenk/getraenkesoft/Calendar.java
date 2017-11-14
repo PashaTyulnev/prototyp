@@ -5,7 +5,11 @@ public class Calendar {
 		
 		
 
-	    public void setContent(String content) {
+	    public Calendar() {
+		// TODO Auto-generated constructor stub
+	}
+
+		public void setContent(String content) {
 	       
 	    }
 

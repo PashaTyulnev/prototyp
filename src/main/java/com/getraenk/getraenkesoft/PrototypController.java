@@ -12,10 +12,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 @Controller
 public class PrototypController{
-		@GetMapping("/home")
+	
+		@GetMapping("/")
 		public String kalender(@RequestParam Optional<String> name,Model model) {
 			model.addAttribute("home",new home());
 			return "home";
 		}
-		
+		@GetMapping("/home")
+		public String kalenderhome(@RequestParam Optional<String> name,Model model) {
+			model.addAttribute("home",new home());
+			return "home";
+		}
 }

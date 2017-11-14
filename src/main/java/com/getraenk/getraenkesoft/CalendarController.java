@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class CalendarController{
 		@GetMapping("/calendar")
 		public String kalender(@RequestParam Optional<String> name,Model model) {
-			model.addAttribute("calendar",new Calendar());
+		
 			return "calendar";
 		}
 }

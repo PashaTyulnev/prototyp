@@ -30,17 +30,17 @@
 			
 			<table class="ui celled table">
             <thead>
-            <tr>
-                <th th:text="#{date.datum}">Datum</th>
-                <th th:text="#{destination.ziel}">Lieferziel</th>
+            <tr th:each="item : ${calendar} ">
+                <th th:text="#{item.datum}">Datum</th>
+                <th th:text="#{item.ziel}">Lieferziel</th>
                
             </tr>
             </thead>
             <tbody th:remove="all-but-first">
 
-            <tr th:each="item : ${cart} ">
-                <td th:text="${item.productName}">21.11.2017</td>
-                <td th:text="${item.quantity}">Bestellung Nr 1</td>
+            <tr th:each="item : ${calendar} ">
+                <td th:text="${item.date}">21.11.2017</td>
+                <td th:text="${item.destination}">Bestellung Nr 1</td>
               
             </tr>
             <tr>
