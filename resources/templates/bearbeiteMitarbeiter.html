@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+
+    <script th:src="@{/webjars/jquery/jquery.min.js}"
+            src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script th:src="@{/webjars/Semantic-UI/semantic.min.js}"
+            src="http://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.js"></script>
+    <link th:href="@{/webjars/Semantic-UI/semantic.min.css}" rel="stylesheet"
+          href="http://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.css" type="text/css"/>
+    <link th:href="@{/resources/css/style.css}" rel="stylesheet"
+          href="../static/resources/css/style.css" type="text/css"/>
+
+    <title th:text="#{empch.title}">Mitarbeiter bearbeiten</title>
+</head>
+<body>
+<div class="ui container">
+    <header>
+        <h1  th:text="#{empch.title}">Mitarbeiter bearbeiten</h1>
+    </header>
+    <nav th:include="navigation :: navigation"></nav>
+    <form method="post" role="form" class="ui form" id="form" th:action="@{/speichereMitarbeiter}" th:object="${form}">
+
+        <h3 class="ui dividing header" th:text="${vorname}+' '+${nachname}"></h3>
+
+        <div class="ui negative message" th:if="${#fields.hasErrors('*')}">
+            <p>Einige Angaben sind nicht korrekt.</p>
+        </div>
+
+        <div class="field">
+            <label for="personenid" th:text="#{emp.id}">ID</label>
+            <input  id="personenid" name="personenid" th:value="${personenid}" type="text" readonly="readonly" required="required"/><br/>
+        </div>
+
+        <div class="field">
+            <label for="benutzername" th:text="#{emp.username}">Benutzername</label>
+            <input  id="benutzername" name="benutzername" th:value="${benutzername}" type="text" readonly="readonly" required="required"/><br/>
+        </div>
+
+
+        <div class="field">
+            <label for="passwort" th:text="#{emp.password}">Passwort</label>
+            <input type="checkbox"  onclick="passwortfeld_aktivieren();" name="passwortfeld_aktiv" id="passwortfeld_aktiv" value="false" />ändern
+            <input id="passwort" name="passwort" th:value="${passwort}" type="password" disabled="disabled" /><br/>
+        </div>
+
+        <div class="field">
+            <label for="rolle" th:text="'Gruppenauswahl - TODO: aktuelle Rolle im DropDown-Menü anzeigen: '+${rolle}">Rolle</label>
+            <select form="form" id="rolle" name="rolle">
+                <option value="ROLE_Kassierer">Kassierer</option>
+                <option value="ROLE_Lieferant">Lieferant</option>
+                <option value="ROLE_Chef">Chef</option>
+            </select>
+        </div>
+
+        <div class="field">
+            <label for="nachname" th:text="#{emp.lastname}">Nachname</label>
+            <input  id="nachname" name="nachname" th:value="${nachname}" type="text" required="required"/><br/>
+        </div>
+
+        <div class="field">
+            <label for="vorname" th:text="#{emp.firstname}">Vorname</label>
+            <input  id="vorname" name="vorname" th:value="${vorname}" type="text" required="required"/><br/>
+        </div>
+
+        <div class="field">
+            <label for="plz" th:text="#{emp.postcode}">Postleitzahl</label>
+            <input id="plz" name="plz" th:value="${plz}" type="text" required="required"/><br/>
+        </div>
+        <div class="field">
+            <label for="stadt" th:text="#{emp.city}">Stadt</label>
+            <input id="stadt" name="stadt" th:value="${stadt}" type="text" required="required"/><br/>
+        </div>
+        <div class="field">
+            <label for="strasse" th:text="#{emp.street}">Straße</label>
+            <input id="strasse" name="strasse" th:value="${strasse}" type="text" required="required"/><br/>
+        </div>
+        <div class="field">
+            <label for="nr" th:text="#{emp.nr}">Hausnummer</label>
+            <input id="nr" name="nr" th:value="${nr}" type="text" required="required"/><br/>
+        </div>
+        <div class="field">
+            <label for="zusatz" th:text="#{emp.extra}">Zusatz</label>
+            <input id="zusatz" name="zusatz" th:value="${zusatz}" type="text" /><br/>
+        </div>
+        <div class="field">
+            <label for="tel" th:text="#{emp.tel}">Telefonnummer</label>
+            <input id="tel" name="tel" th:value="${tel}" type="text" /><br/>
+        </div>
+        <div class="field">
+            <label for="email" th:text="#{emp.email}">E-Mail</label>
+            <input id="email" name="email" th:value="${email}" type="text" /><br/>
+        </div>
+        <div class="field">
+            <label for="wochenstunden" th:text="#{emp.hrsweek}">Wochenstunden</label>
+            <input id="wochenstunden" name="wochenstunden" th:value="${wochenstunden}" type="number" step="1" /><br/>
+        </div>
+        <div class="field">
+            <label for="stundenlohn" th:text="#{emp.wage}">Stundenlohn</label>
+            <input id="stundenlohn" name="stundenlohn" th:value="${stundenlohn}" type="number" step="0.01" /><br/>
+        </div>
+        <button type="submit" class="ui button" th:text="#{emp.save}"></button>
+        <button type="button" th:onclick="@{self.location.href='/loescheMitarbeiter/{id}' (id=${personenid})}" class="ui button"  th:text="#{emp.delete}"></button>
+    </form>
+</div>
+</body>
+<script>
+    function passwortfeld_aktivieren(){
+        document.forms['form'].passwort.disabled = !$( "#passwortfeld_aktiv" ).is(':checked');
+    }
+</script>
+</html>

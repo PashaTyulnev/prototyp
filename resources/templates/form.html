@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+
+    <script th:src="@{/webjars/jquery/jquery.min.js}"
+            src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script th:src="@{/webjars/Semantic-UI/semantic.min.js}"
+            src="http://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.js"></script>
+    <link th:href="@{/webjars/Semantic-UI/semantic.min.css}" rel="stylesheet"
+          href="http://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.css" type="text/css"/>
+    <link th:href="@{/resources/css/style.css}" rel="stylesheet"
+          href="../static/resources/css/style.css" type="text/css"/>
+
+    <title>Bestellung erstellen</title>
+</head>
+<body>
+<div class="ui container">
+    <header>
+        <h1></h1>
+    </header>
+	<center>
+		<h33></h33>
+        <h3 class="ui dividing header">Bestellungsdaten</h3>     
+        <h11 th:text="${failed}">fehlgeschlagen</h11>
+        <form name="forgotpassord" action="foo" method="POST" >
+        <table class="ui celled table">
+            <thead>
+            <tr>
+                <th>Vorname</th>
+                <th>Nachname</th>
+                <th>Auswählen</th>
+            </tr>
+            </thead>
+            <tbody th:remove="all-but-first">
+            <tr th:each="person : ${list} ">
+            	<td>
+					<a th:text="${person.userAccount.firstname}"></a>
+            	</td>
+            	<td>
+					<a th:text="${person.userAccount.lastname}"></a>
+            	</td>
+            	<td>
+            		<div th:switch="${person.userAccount.firstname}">
+            			<input th:case="'Niklas'" name='kunde' type='radio' th:value='${person.id}' checked = 'checked'/>
+            			<input th:case="*" name='kunde' type='radio' th:value='${person.id}'/>	     
+            		</div>
+            	</td>
+            </tr>
+            </tbody>
+        </table>
+        	<ul>
+        		<label>Adresse:</label> <input type='text' name='adresse' />
+        		<h4></h4>
+        		<label>Termin: </label> <input type='date' th:value="${date}" name='termin' />
+        		<h5>Event?</h5>
+        		<label>JA:  </label> <input name = "event" type = "radio" th:value='true'/>
+        		<label>NEIN:  </label> <input name = "event" type = "radio" value="NEIN" th:value='false' checked = "checked"/>
+        		<h6></h6>
+        		<button type="submit" class="ui button" th:text="Bestätigen">Kaufen</button>
+    		</ul>
+        </form>
+   </center>
+</div>
+</body>
+</html>
