@@ -1,0 +1,70 @@
+= Protokoll Gruppe 15
+
+Internes Treffen am 23.10.2017
+
+Ort:      WIL +
+Beginn:   11:10 Uhr +
+Ende:     12:40 Uhr
+
+__Schriftführer: Marcus Dawideit__
+
+*Nächstes Treffen:* +
+26.10.2017, 14:50 Uhr, APB
+
+__Teilnehmer:__
+//Tabellarisch oder Aufzählung, Kennzeichnung von Teilnehmern mit besonderer Rolle (z.B. Kunde)
+
+- Tony Fiedler (*SCRUM MASTER*)
+- Marcus Dawideit (*PROTOKOLLANT*)
+- Pavel Tyulnev
+- An Dang Thanh
+- Leon Röscher
+
+== Bemerkungen
+
+*Nächstes Gruppeninternes Treffen* am Mittwoch dem 25.10.2017. (Vorraussichtlich 2. & 3. DS)
+
+
+== Retrospektive des letzten Sprints
+
+Jeder hat sich mit Spring/Maven auseinandergesetzt und die Entwicklungsumgebung für das Projekt geschaffen.
+
+*Issue referenziert die Issue ID von GitHub*
+// Wie ist der Status der im letzten Sprint erstellten Issues/veteilten Aufgaben?
+
+// See http://asciidoctor.org/docs/user-manual/=tables
+[option="headers"]
+|===
+|Issue |Aufgabe |Status |Bemerkung
+|…     |…       |…      |…
+|===
+
+
+== Aktueller Stand
+
+CRC Kartenmethode wurde fortgeführt. (Beendigung am Mittwoch)
+
+Aufgaben bezüglich des Pflichtenheftes wurden vergeben. (s. unten)
+
+== Planung des nächsten Sprints
+
+__Aufgabenverteilung: (bis zum nächsten GI Treffen)__
+
+- *Leon Röscher:* "Nicht funktionale Anforderungen"
+- *Tony Fiedler:* "Anwendungsfallbeschreibung" & "KANN - Kriterien"
+- *An Dang Thanh:* "Anwendungsfalldiagramm"
+- *Pavel Tyulnev:* "Systemgrenze und TLA" & "GUI Prototyp"
+- *Marcus Dawideit:* "GUI Prototyp"
+
+Der Abschnitt "Datenmodell" wird beim nächsten GI Treffen (25.10.) zusammen auf Grundlage der abgeschlossenen CRC-Kartenmethode bearbeitet.
+
+Jeder soll sich dabei individuell schon im Vorraus Gedanken zu den übrigen Klassen machen.
+
+*Issue referenziert die Issue ID von GitHub*
+
+// See http://asciidoctor.org/docs/user-manual/=tables
+[option="headers"]
+|===
+|Issue |Titel |Beschreibung |Verantwortlicher |Status
+|…     |…     |…            |…                |…
+|===

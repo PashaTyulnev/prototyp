@@ -1,0 +1,73 @@
+= Protokoll Gruppe 15
+
+Treffen am 09.11.2017
+
+Ort:      APB +
+Beginn:   14:50 Uhr +
+Ende:     16:30 Uhr
+
+__Schriftführer: Marcus Dawideit__
+
+*Nächstes Treffen:* +
+16.11.2017, 14:50 Uhr, APB
+
+__Teilnehmer:__
+//Tabellarisch oder Aufzählung, Kennzeichnung von Teilnehmern mit besonderer Rolle (z.B. Kunde)
+
+- Florentin Dörre (*KUNDE*)
+- Tony Fiedler (*SCRUM MASTER*)
+- Marcus Dawideit (*PROTOKOLLANT*)
+- An Dang Thanh
+- Leon Röscher
+- Pavel Tyulnev
+
+== Bemerkungen
+
+__Organisatorisches:__
+
+- die Zwischenpräsentation findet am 23.11. statt
+- am 14.01. wird das Projekt geprüft
+- bis zum  16.11. sind die "großen Prototypen", Entwurfsklassendiagramme & Entwicklerdoku fertigzustellen
+- *nächstes Gruppeninternes Treffen*: 13.11.2017 14:50 (vorrauss. APB)
+
+Zuteilung der "großen Prototypen":
+
+- __Leon Röscher__: Getränkemanagement
+- __Marcus Dawideit__: Bestellungsmanagement
+- __Pavel Tyulnev__: Logistikmanagement
+- __Tony Fiedler__: Mitarbeitermanagement
+- __An Dang Thanh__: Finanzmanagement
+
+== Retrospektive des letzten Sprints
+
+*Bemerkung:* Issue referenziert die Issue ID von GitHub
+// See http://asciidoctor.org/docs/user-manual/=tables
+[option="headers"]
+|===
+|Issue |Titel |Beschreibung |Verantwortliche(r) |Status
+|#2|Entwurfsklassendiagramme erstellen (*MILESTONE*) |Erster Stand der Entwurfsklassendiagramme wurden fertiggestellt.|alle|in Bearbeitung
+|#5|Aufteilung der Großen Prototypen|Zuteilung s. "Bemerkungen"|alle|fertig
+|#9|Analyse SalesPoint-Framework mit groben Funktionsbereichen (ff.)|Jeder soll nun seinen zugeteilten Teilbereich entwerfen.|alle|fertig
+|===
+
+== Aktueller Stand
+
+Erster Stand der Entwurfsklassendiagramme fertiggestellt.
+
+Pflichtenheft nun komplett.
+
+== Planung des nächsten Sprints
+
+*Bemerkung:* Issue referenziert die Issue ID von GitHub
+
+*Bemerkung:* nna = "noch nicht angefangen"
+// See http://asciidoctor.org/docs/user-manual/=tables
+[option="headers"]
+|===
+|Issue |Titel |Beschreibung |Verantwortliche(r) |Status
+|#2|Entwurfsklassendiagramme erstellen (*MILESTONE*) |z.T. Klassendiagramme überarbeiten und zusammenführen|alle|in Bearbeitung
+|#11|Große Prototypen fertigstellen|Zuteilung s. "Bemerkungen"|alle|in Bearbeitung
+|#12|Entwicklerdoku fertigstellen|Jeder soll seinen Teil zur Entwicklerdoku beitragen|alle|nna
+|===
+
+Alle der offenen Issues müssen bis zum nächsten Tutorentreffen am 16.11.2017 abgeschlossen sein. Besprechungen bezüglich der Entwicklerdoku bzw. Prototypenhilfe werden im nächsten Gruppeninternen Treffen gehalten.

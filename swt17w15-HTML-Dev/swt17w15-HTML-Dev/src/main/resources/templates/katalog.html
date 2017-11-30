@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+
+    <script th:src="@{/webjars/jquery/jquery.min.js}"
+            src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script th:src="@{/webjars/Semantic-UI/semantic.min.js}"
+            src="http://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.js"></script>
+    <link th:href="@{/webjars/Semantic-UI/semantic.min.css}" rel="stylesheet"
+          href="http://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.css" type="text/css"/>
+    <link th:href="@{/resources/css/style.css}" rel="stylesheet"
+          href="../static/resources/css/style.css" type="text/css"/>
+
+    <title>Katalog</title>
+</head>
+<body>
+<div class="ui container">
+    <header>
+        <h1>Katalog</h1>
+    </header>
+    <nav th:include="navigation :: navigation"></nav>
+
+    <form class="ui form" method="post" th:action="@{/artikelSuchen}">
+
+        <div class="field">
+            <label for="suche">Suche Kategorie</label>
+            <input id="suche" type="text" name="suche"/><br/>
+            <button type="submit" class="ui button">Suchen</button>
+        </div>
+
+
+
+    </form>
+
+    <div class="ui link cards" th:remove="all-but-first">
+        <div class="ui card" th:each="artikel : ${katalog}">
+            <div class="content">
+                <a class="header" th:href="@{/artikel/{id}(id=${artikel.id})}"  th:text="${artikel.name}">Saft</a>
+            </div>
+            <div class="image">
+                <a >
+
+                    <img class="thumbnail" th:src="@{/resources/img/getränke/{image}.jpg(image=${artikel.name})}"
+                         src="../static/resources/img/cover/lac.jpg"/>
+
+                </a>
+            </div>
+            <div class="content">
+                <div class="description" th:text="${{artikel.getPrice()}}">9.99 €</div>
+            </div>
+
+            <div class="content" sec:authorize="hasRole('ROLE_Chef')">
+                <div class="extra content" th:text="${artikel.getAnzahl()}">0</div>
+            </div>
+
+            <div class="extra content" th:text="${artikel.getBeschreibung()}">Getränk</div>
+
+            <div class="content">
+                <div class="description" th:text="${artikel.categoriesToString()}">Saft</div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

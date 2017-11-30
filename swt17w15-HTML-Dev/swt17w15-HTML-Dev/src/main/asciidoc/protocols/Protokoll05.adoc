@@ -1,0 +1,56 @@
+= Protokoll Gruppe 15
+
+Treffen am 26.10.2017
+
+Ort:      APB +
+Beginn:   14:50 Uhr +
+Ende:     15:50 Uhr
+
+__Schriftführer: Marcus Dawideit__
+
+*Nächstes Treffen:* +
+02.11.2017, 14:50 Uhr, APB
+
+__Teilnehmer:__
+//Tabellarisch oder Aufzählung, Kennzeichnung von Teilnehmern mit besonderer Rolle (z.B. Kunde)
+
+- Florentin Dörre (KUNDE)
+- Tony Fiedler (SCRUM MASTER)
+- Marcus Dawideit (PROTOKOLLANT)
+- Leon Röscher
+- An Dang Thanh
+- Pavel Tyulnev
+
+== Bemerkungen
+
+Nächstes Gruppeninternes Treffen vorraussichtlich am 31.10.2017.
+
+Dieses Treffen wird dazu dienen, denen denen es schwer fällt die Prototypenaufgaben zu lösen zu helfen und auf die Email des Tutors bez. Änderungen des Pflichtenheftes zu reagieren und eventuelle Fehler zu beheben.
+
+Aufgaben wurden vergeben bis Sonntag (s. unten).
+
+Prototypaufgaben (Videoshop) wurden verteilt und sind bis zum 02.11. fertigzustellen.
+
+== Retrospektive des letzten Sprints
+
+Pflichtenheft wurde größtenteils fertiggestellt und muss noch überarbeitet werden.
+
+== Aktueller Stand
+
+Pflichtenheft ist fast abgeschlossen, Aufgaben diesbezüglich s. unten.
+
+CRC - Kartenmethode abgeschlossen.
+
+Diagramme teilweise widersprüchlich bzw. nicht konsistent in der Namensgebung.
+
+Komponentendiagramm und Kontextdiagramm sind zu oberflächlich.
+
+== Planung des nächsten Sprints
+
+Aufgabenverteilung:
+
+- __Tony Fiedler__: Pflichtenheft auf Konsistenz bez. des Aufbaus des Systems und Namensgebung der Klasse überprüfen und beheben
+- __Leon Röscher__: an Analyse-Klassendiagramm weiterarbeiten
+- __Pavel Tyulnev__: Komponenten- und Kontextdiagramm überarbeiten
+
+Die Aufgaben nach Sonntag richten sich nach der Email des Tutors.

@@ -1,0 +1,180 @@
+= Test-Plan
+
+Dieser Testplan stellt eine vereinfachte Version der IEEE 829-1998 Vorlage dar.
+
+== Einführung
+Wozu dient das Dokument? Zielgruppe?
+
+== Aufbau der Testbezeichner
+Nach welchem Schema sind die Tests benannt?
+
+*Bsp.*
+
+*U - Unit Test, I - Integrationstest*
+
+*U-1, U-2, I-1*
+
+== Test Gegenstände
+
+== Zu testende Funktionalitäten
+
+== Nicht zu testende Funktionalitäten
+z.B. Bibliotheken von Drittanbietern (eigene Tests beschränken sich auf Schnittstelle, bzw. Zusammenspiel).
+
+== Herangehensweise
+*Bsp.:*
+
+*Klassen werden mit JUnit getestet.*
+
+*Integrationstest nach Bottom-Up Prinzip*
+
+== Umgebungsvoraussetzungen
+* Wird spezielle Hardware benötigt?
+* Welche Daten müssen bereitgestellt werden? Wie werden die Daten bereitgestellt?
+* Wird zusätzliche Software für das Testen benötigt?
+* Wie kommuniziert die Software während des Testens? Internet? Netzwerk?
+
+== Testfälle und Verantwortlichkeit
+Jede testbezogene Aufgabe muss einem Ansprechpartner zugeordnet werden.
+
+UT1xxx = Marcus Dawideit
+UT2xxx = Getränkemanagement
+
+// See http://asciidoctor.org/docs/user-manual/#tables
+[options="headers"]
+|===
+|ID |Anwendungsfall |Vorbedingungen |Eingabe |Ausgabe
+|**<<UT1001>>**   |**<<UC0100>>**           |Bei der Erstellung wird ein leerer Warenkorb übergeben.             |Bestellung(Warenkorb empty)     |Exception
+|**<<UT1002>>**   |**<<UC0100>>**           |Bei der Erstellung wird kein Warenkorb übergeben.             |Bestellung()     |Exception
+|**<<UT1003>>**   |**<<UC0100>>**           |Bei der Erstellung wird ein gefüllter Warenkorb übergeben.             |Bestellung(Warenkorb filled)     |Bestellung
+|**<<UT1004>>**   |**<<UC0110>>**           |Die Bestellung hat kein Wert für dieses Attribut|bestellung.getAttribut()|Exception
+|**<<UT1005>>**   |**<<UC0110>>**           |Die Bestellung hat einen Wert für dieses Attribut|bestellung.getAttribut()|Attribut
+|**<<UT1006>>**   |**<<UC0110>>**           |Der Funktion wird null übergeben              |setAttribute(null)      |false
+|**<<UT1007>>**   |**<<UC0110>>**           |Der Funktion wird eine Variable des falschen Typs übergeben und ist nicht null.             |setAttribute(FalseType false)      |false
+|**<<UT1008>>**   |**<<UC0110>>**           |Der Funktion wird eine Variable des richtigen Typs übergeben.             |setAttribute(CorrectType correct)      |true
+|**<<UT1009>>**   |**<<UC0110>>**           |Das Lieferdatum ist vor dem derzeitigem Datum.             |bestellung.setLieferdatum(Date gestern)      |false
+|**<<UT1010>>**   |**<<UC0110>>**           |Das Lieferdatum ist nach dem derzeitigem Datum. Der Status ist "OFFEN"             |bestellung.setLieferdatum(Date date)      |true
+|**<<UT1011>>**   |**<<UC0110>>**           |Die Bestellung ist eine Großbestellung. Das eigegebene Datum ist 3 Tage vor Beginn des Versands.             |bestellung.setLieferdatum(Date date)      |false
+|**<<UT1012>>**   |**<<UC0120>>**           |Die Bestellung hat den Status "OFFEN"             |bestellung.delete()      |true
+|**<<UT1013>>**   |**<<UC0120>>**           |Die Bestellung hat *nicht* den Status "OFFEN"             |bestellung.delete()      |false
+|**<<UT2001>>**   |**<<UC0000>>**           |Im Katalog wird ein NULL Objekt abgelegt             |catalog.save()      |false
+|**<<UT2002>>**   |**<<UC0000>>**           |Ein Artikel hat einen leeren bzw NULL Namen             |artikel()      |NullPointerException
+|**<<UT2003>>**   |**<<UC0000>>**           |Ein Artikel hat eine NULL ID             |artikel().getId()      |NULL
+|**<<UT2004>>**   |**<<UC0000>>**           |Die Menge eines Artikels liegt unter der Mindestmenge             |catalog request      |Liste der Artikel ohne diesen Artikel
+|**<<UT2005>>**   |**<<UC0000>>**           |Artikel hat einen Namen             |artikel.getName()      |Name des Artikels
+|**<<UT2006>>**   |**<<UC0000>>**           |Artikel hat Kategorie x             |catalog.getCategories(x)      |Liste die den Artikel enthält
+|**<<UT3001>>**   |**<<UC0500>>**           |Bestellung ist bereits zugewiesen|Lieferung_zuweisen()|false
+|**<<UT3002>>**   |**<<UC0500>>**          |Bestellung ist offen|Lieferung_zuweisen()|true
+|**<<UT3003>>**|**<<UC0500>>**|Mitarbeiter ist Fahrer|Lieferung_zuweisen()|true
+|**<<UT3004>>**|**<<UC0500>>**|Mitarbeiter ist Kassierer|Lieferung_zuweisen()|false
+|**<<UT3005>>**|**<<UC0500>>**|Bestellung abgeschlossen|Lieferung_zuweisen()|false
+|**<<UT3006>>**|**<<UC0510>>**|Kunde hat eine Adresse|getAdresse()|Adresse
+|**<<UT3007>>**|**<<UC0510>>**|Kunde hat keine Adresse|getAdresse()|exception
+|**<<UT3008>>**|**<<UC0510>>**|Die Bestellung hat selbe Parameter, wie in der Liste|setBestellung()|true
+|**<<UT3009>>**|**<<UC0510>>**|Die Bestellung hat ungleiche Paramer,wie in der Liste|setBestellung()|false
+|**<<UT3010>>**|**<<UC0520>>**|Lieferzeit ist vergangen|Bestellung_abschließen()|true
+|**<<UT3011>>**|**<<UC0520>>**|Lieferzeit ist nicht vergangen|Bestellung_abschließen()|false
+|**<<UT3012>>**|**<<UC0520>>**|Bestellung offen|Bestellung_abschließen()|false
+|**<<UT3013>>**|**<<UC0520>>**|Lieferzeit ist vergangen|Bestellung_abschließen()|setAttribute
+|===
+
+UT4xxx - Tony Fiedler
+[options="headers"]
+|===
+|ID |Anwendungsfall |Vorbedingungen |Eingabe |Ausgabe
+
+|**<<UT4001>>** |**<<UC0400>>** |Man befindet sich auf der Mitarbeiter-anlegen-Seite. |Es wird kein Vorname oder Nachname eingetragen. |Es wird eine Fehlermeldung ausgegeben. Personenmanager.anlegen() wirft eine Exception.
+
+|**<<UT4002>>** |**<<UC0400>>** |Man befindet sich auf der Mitarbeiter-anlegen-Seite. |Es werden alle Daten eines Mitarbeiters eingetragen. |Der Mitarbeiter wird erfolgreich angelegt und erscheint in der Mitarbeiterliste.
+
+|**<<UT4010>>** |**<<UC0410>>** |Man befindet sich auf der Detail-Seite eines Mitarbeiters. |Es wird auf den Button zum Löschen des Mitarbeiters geklickt. |Der Mitarbeiter wird gelöscht und verschwindet aus der Mitarbeiterliste.
+
+|**<<UT4011>>** |**<<UC0410>>** |Man befindet sich auf der Detail-Seite des Chefs. |Es wird auf den Button zum Löschen geklickt. | Es wird eine Fehlermeldung ausgegeben, dass der Chef sich nicht selber löschen kann.
+
+|**<<UT4020>>** |**<<UC0420>>** |Man befindet sich auf der Detail-Seite eines Mitarbeiters. |Es wird im DropDown-Menü eine andere Rolle ausgewählt und der Mitarbeiter gespeichert. |Der Mitarbeiter bekommt die neue Rolle zugewiesen und die alte wurde entfernt.
+
+|**<<UT4021>>** |**<<UC0420>>** |Man befindet sich auf der Detail-Seite des Chefs. |Der Chef ändert seine Rolle und speichert die Seite. |Es wird eine Fehlermeldung ausgegeben, dass der Chef seine eigene Rolle nicht ändern kann.
+
+|**<<UT4022>>** |**<<UC0420>>** |Man befindet sich auf der Detail-Seite eines Mitarbeiters |Es wird die Rolle eines Mitarbeiters zu der Rolle Chef geändert. |Es wird eine Fehlermeldung ausgegeben, dass dies nicht möglich ist.
+
+|**<<UT4030>>** |**<<UC0430>>** |Eine Person mit der Rolle Chef ist authentifiziert. |Es wird auf den Button für die Mitarbeiterliste geklickt. |Es wird eine Liste mit allen vorhandenen Mitarbeitern angezeigt.
+
+|**<<UT0440>>** |**<<UC0440>>** |Eine Person mit der Rolle Chef ist authentifiziert. |Es wird auf den Button zum Anlegen eines Kunden geklickt auf der Seite der Kundenliste und triviale Werte eingegeben. Dazu eine gültige Postleitzahl Dresdens (01069). Es wird auf den Button zum Speichern des Kunden geklickt. | Der Kunde wird im System angelegt und erscheint in der Kundenliste.
+
+|**<<UT0440>>** |**<<UC0440>>** |Eine Person mit der Rolle Chef ist authentifiziert. |Es wird auf den Button zum Anlegen eines Kunden geklickt auf der Seite der Kundenliste und triviale Werte eingegeben. Dazu eine ungültige Postleitzahl Dresdens (01458). Es wird auf den Button zum Speichern des Kunden geklickt. | Es wird eine Fehlermeldung ausgegeben, dass die Postleitzahl ungültig ist.
+
+|**<<UT4050>>** |**<<UC0450>>** |Man befindet sich auf der Detail-Seite eines Kunden. |Es werden triviale Attribute (alle außer die Postleitzahl) eines Kunden geändert. |Die neuen Attribute wurden angewandt.
+
+|**<<UT4051>>** |**<<UC0450>>** |Man befindet sich auf der Detail-Seite eines Kunden. |Es wird die Postleitzahl geändert (zu 012345), welche *keine* gültige Postleitzahl von Dresden ist.  |Es wird eine Fehlermeldung ausgegeben, dass die Postleitzahl ungültig ist.
+
+|**<<UT4052>>** |**<<UC0450>>** |Man befindet sich auf der Detail-Seite eines Kunden. |Es wird die Postleitzahl geändert, welche eine gültige Postleitzahl von Dresden ist (01169) |Die Zone zu dieser Postleitzahl wird berechnet und die Änderung gespeichert.
+
+|**<<UT4060>>** |**<<UC0460>>** |Man befindet sich auf der Detail-Seite eines Kunden. |Es wird der Button zum Löschen des Kunden angeklickt. |Der Kunde wurde gelöscht und erscheint nicht mehr in der Kundenliste.
+
+|**<<UT4080>>** |**<<UC0480>>** |Ein Mitarbeiter ist im System authentifiziert und es besteht mindestens ein Kunde im System. |Es wird auf den Button zur Anzeige der Kundenliste geklickt. |Es wird eine Kundenliste mit einem Kunden angezeigt.
+
+|**<<UT4081>>** |**<<UC0480>>** |Ein Mitarbeiter ist im System authentifiziert und es besteht *kein* Kunde im System. |Es wird auf den Button zur Anzeige der Kundenliste geklickt. |Es wird eine leere Kundenliste angezeigt.
+
+|**<<UT1420>>** |**<<UC1420>>** |Man befindet sich auf der Seite der Kundenliste. Der auszuwählende Kunde besitzt mindestens eine Bestellung. |Es wird ein Kunde aus der Liste augewählt. |Es wird die Detail-Seite des Kunden angezeigt samt aller getätigten Bestellungen.
+
+|**<<UT1421>>** |**<<UC1420>>** |Man befindet sich auf der Seite der Kundenliste. Der auszuwählende Kunde besitzt keine getätigten Bestellung. |Es wird ein Kunde aus der Liste augewählt. |Es wird die Detail-Seite des Kunden angezeigt mit einer leeren Bestellungsliste.
+|===
+
+UT5xxx - An Dang Thanh
+[options="headers"]
+|===
+|ID |Anwendungsfall |Vorbedingungen |Eingabe |Ausgabe
+|**<<UT5000>>** | **<<UC1460>>** | Eine Bestellung wurde abgeschlossen, mit dem Preis 100EURO. | monatlicheEinnahmenBerechnen() | Map mit Datum und Einnahmen 100EURO
+
+|**<<UT5001>>** | **<<UC1460>>**  | Keine Bestellung wurde abgeschlossen. | monatlicheEinnahmenBerechnen() | leere Map
+
+|**<<UT5002>>**| **<<UC1460>>** | Eine Bestellung wurde abgeschlossen, mit dem Preis 100EURO. | järhlicheEinnahmenBerechnen() | Map mit Datum und Einnahmen 100EURO
+
+|**<<UT5003>>**| **<<UC1460>>** | Keine Bestellung wurde abgeschlossen. | jährlicheEinnahmenBerechnen() | leere Map
+
+|**<<UT5004>>** | **<<UC1460>>**  | 2000EURO Ausgaben wurden getätigt. | monatlicheAusgabenBerechnen() | Map mit Datum und Ausgaben 2000EURO
+
+|**<<UT5005>>**| **<<UC1460>>**  | Keine Ausgabe wurden getätigt. | monatlicheEinnahmenBerechnen() | leere Map
+
+|**<<UT5006>>** | **<<UC1460>>**  | 2000EURO Ausgaben wurden getätigt. | monatlicheAusgabenBerechnen() | Map mit Datum und Ausgaben 2000EURO
+
+|**<<UT5007>>** | **<<UC1460>>**  | Keine Ausgabe wurden getätigt. | monatlicheAusgabenBerechnen() | leere Map
+
+|**<<UT5008>>** | **<<UC1460>>**  | 2000EURO Ausgaben wurden getätigt. | jährlicheAusgabenBerechnen() | Map mit Datum und Ausgaben 2000EURO
+
+|**<<UT5009>>** | **<<UC1460>>**  | Keine Ausgabe wurden getätigt. | jährlicheAusgabenBerechnen() | leere Map
+
+
+|**<<UT5010>>** | **<<UC1460>>**  | 2000EURO Ausgaben wurden getätigt und Mitarbeiter mit Gehalt 1000EURO existiert. | monatlicheGesamtAusgabenBerechnen() | Map mit Datum und Ausgaben 3000EURO
+
+|**<<UT5011>>** | **<<UC1460>>**  | Keine Ausgabe wurden getätigt. | monatlicheGesamtAusgabenBerechnen() | leere Map
+
+|**<<UT5012>>** | **<<UC1460>>**  | 2000EURO Ausgaben wurden getätigt und Mitarbeiter mit Gehalt 1000EURO existiert. | jährlicheGesamtAusgabenBerechnen() | Map mit Datum und Ausgaben 3000EURO
+
+|**<<UT5013>>** | **<<UC1460>>**  | Keine Ausgabe wurden getätigt. | jährlicheGesamtAusgabenBerechnen() | leere Map
+
+
+|**<<UT5014>>** | **<<UC1460>>**  | 3000EURO GesamtAusgaben und 5000EURO Einahmen sind vorhanden. | monatlichenUmsatzBerechnen() | Map mit Datum und Umsatz 2000EURO
+
+|**<<UT5015>>** | **<<UC1460>>**  | Keine Einahmen und Keine Ausgaben sind vorhanden | monatlichenUmsatzBerechnen() | leere Map
+
+|**<<UT5016>>** | **<<UC1460>>**  | 3000EURO GesamtAusgaben und 5000EURO Einahmen sind vorhanden. | jährlichenUmsatzBerechnen() | Map mit Datum und Ausgaben 2000EURO
+
+|**<<UT5017>>** | **<<UC1460>>**  | Keine Ausgabe wurden getätigt. | jährlichenUmsatzBerechnen() | leere Map
+
+|**<<UT5018>>** | **<<UC1460>>**  | 5000EURO Ausgaben wurden getätigt | ausgabenEintragen(5000) | true
+
+|**<<UT5019>>** | **<<UC1460>>**  | -100EURO Ausgaben wurden eingetragen | ausgabenEintragen(-100) | false
+
+|**<<UT5020>>** | **<<UC1460>>**  | Bier existiert im Getränkekatalog | bestandErhöhen(Bier,100) | true
+
+|**<<UT5021>>** | **<<UC1460>>**  | Bier existiert nicht im Getränkekatalog | bestandErhöhen(Bier,100) | false
+
+|**<<UT5022>>** | **<<UC1460>>**  | Bier existiert nicht im Getränkekatalog | getränkHinzufügen(Bier) | true
+
+|**<<UT5023>>** | **<<UC1460>>**  | Bier existiert im Getränkekatalog | getränkHinzufügen(Bier) | false
+
+|**<<UT5024>>** | **<<UC1460>>**  | Bier existiert im Getränkekatalog | getränkEntfernen(Bier) | true
+
+|**<<UT5025>>** | **<<UC1460>>**  | Bier existiert im nicht Getränkekatalog | getränkEntfernen(Bier) | false
+|===

@@ -1,0 +1,13 @@
+# Getränkehandel Schluck & Sohn
+
+Dieses Programm wird im Rahmen des Softwaretechnologie-Projektes im Studiengang Informatik der http://tu-dresden.de[Technischen Universität Dresden] von der Gruppe 15 erstellt.
+
+## Quicklinks
+
+* link:src/main/asciidoc/entwickler_doku.adoc[Entwickler-Dokumentation]
+* link:src/main/asciidoc/models/design[Entwurfsphase]
+* link:src/main/asciidoc/pflichtenheft.adoc[Pflichtenheft]
+* link:prototypes[Prototypen]
+* link:src/main/asciidoc/models/analysis/[Diagramme der Analyse-Phase]
+* link:src/main/asciidoc/time_recording.adoc[Zeitauflistungs-Tabelle]
+* link:src/main/asciidoc/protocols/[Gruppen-Protokolle]

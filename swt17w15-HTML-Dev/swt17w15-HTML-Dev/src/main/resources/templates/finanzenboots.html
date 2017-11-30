@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+
+
+    <link rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    integrity="../static/resources/css/bootstrap.min.css" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+</head>
+<body>
+
+
+
+<br><br>
+<div class="panel panel-primary">
+    <div class="panel-heading">
+    <header>
+        <h1 th:text="Finanzen">Finanzen</h1>
+    </header>
+  </div>
+  <div class="panel-body">
+
+    <nav th:include="navigation :: navigation"></nav>
+
+    <form class="ui form" th:action="@{/finanzbutton}" method="post">
+
+
+        <div class="field">
+            <label for="addTime">Zeit in Tagen vor- oder zurückspulen</label>
+            <input type="number" class="form-control" id="addTime" name="addTime" autofocus="autofocus"/>
+            <p class="help-block">Datum auswählen</p>
+          </div>
+            <button type="submit" class="btn btn-primary btn-md btn-block" th:text="AddTime"><span class="glyphicon glyphicon-time"></span>AddTime</button><br>
+    </form>
+
+    <div class="panel panel-warning">
+    <div class="panel-heading">
+    <h1 th:name="Einnahmen">Einahmen</h1>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <h3 th:name="MonatlicheEinnahmen">Monatliche Einnahmen</h3>
+        <div class="panel-body">
+      <div class="table-responsive">
+        <table class="table table-striped table-hover">
+          <thead>
+              <tr class="active">
+                <th th:text="Datum">Datum</th>
+                <th th:text="|Monatliche Einnahmen|">Einnahmen</th>
+              </tr>
+          </thead>
+
+          <tbody th:remove="all-but-first">
+              <tr th:each=" item : ${einnahmen}">
+                <td th:text="|${item.key.dayOfMonth}. ${item.key.month} ${item.key.year}|">30.11.2017</td>
+                <td th:text="${item.value}">9000,00€</td>
+              </tr>
+              <tr>
+                <td>12.12.2017</td>
+                <td>3653,45€</td>
+              </tr>
+              <tr>
+                <td>31.12.2018</td>
+                <td>over 9000,00€</td>
+              </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    </div>
+
+
+
+
+    <div class="col-md-6">
+    <h3 th:name="JährlicheEinnahmen">Jährliche Einnahmen</h3>
+    <br>
+
+    <table class="table table-striped table-hover">
+        <thead>
+        <tr class="active">
+            <th th:text="Datum">Datum</th>
+            <th th:text="|Jährliche Einnahmen|" >Einnahmen</th>
+        </tr>
+        </thead>
+        <tbody th:remove="all-but-first">
+        <tr th:each=" item : ${jhrlicheeinnahmen}">
+            <td th:text="|${item.key.dayOfMonth}. ${item.key.month} ${item.key.year}|">10.04.2017</td>
+            <td th:text="${item.value}">9654,00€</td>
+        </tr>
+        <tr>
+            <td>12.12.2017</td>
+            <td>24.123,00€</td>
+        </tr>
+        <tr>
+            <td>23.04.2019</td>
+            <td>54.234,53€</td>
+        </tr>
+        </tbody>
+    </table>
+    </div>
+</div>
+
+<div class="panel panel-warning">
+<div class="panel-heading">
+    <h1 th:name="Ausgaben">Ausgaben</h1>
+</div>
+<div class="row">
+  <div class="col-md-6"
+  <br>
+
+    <h3 th:name="MonatlicheAusgaben">Monatliche Ausgaben</h3>
+
+    <table class = "table table-striped table-hover">
+        <thead>
+        <tr class="active">
+            <th th:text="Datum">Datum</th>
+            <th th:text="Gesamtgehälter">Gesamtgehälter</th>
+            <th th:text="Ausgaben">Ausgaben</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each=" item : ${ausgaben}">
+            <td th:text="|${item.key.dayOfMonth}. ${item.key.month} ${item.key.year}|">13.07.2017</td>
+            <td th:text="${gesamtGehalt}">1243,00€</td>
+            <td th:text="${item.value}">2345,00€</td>
+        </tr>
+        </tbody>
+    </table>
+  </div>
+
+ <div class="col-md-6">
+    <h3 th:name="MonatlicheGesamtausgaben">Monatliche Gesamtausgaben</h3>
+    <table class = "table table-striped table-hover">
+        <thead>
+        <tr class="active">
+            <th th:text="Datum">Datum</th>
+            <th th:text="|Gesamt Ausgaben|">Gesamt Ausgaben</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each=" item : ${gesamtAusgaben}">
+            <td th:text="|${item.key.dayOfMonth}. ${item.key.month} ${item.key.year}|">21.12.2019</td>
+            <td th:text="${item.value}">534.234.434,01€</td>
+        </tr>
+        </tbody>
+    </table>
+  </div>
+</div>
+
+    <form class="ui form" role="form" th:action="@{/ausgabeneintragen}" method="post">
+        <div class="field">
+            <label for="ausgabeneintragen">Eingeben</label>
+            <input type="number" class="form-control" id="ausgabeneintragen" name="ausgabeneintragen" autofocus="autofocus"/>
+            <p class="help-block">Zusätzliche Ausgaben</p>
+        </div>
+        <div>
+        <button type="submit" class="btn btn-primary btn-md btn-block"><span class="glyphicon glyphicon-euro"></span >Ausgaben hinzufügen</button>
+    </form>
+
+        </div>
+        <br>
+      </div>
+      <div class="panel panel-warning">
+            <div class="panel-heading">
+              <h1 th:name="Umsatz">Umsatz</h1>
+            </div>
+
+
+
+<div class="row">
+  <div class="col-md-4"></div>
+    <div class="col-md-4">
+    <h3 th:name="MonatlicherUmsatz">Monatlicher Umsatz</h3>
+    <table class="table table-striped table-hover">
+        <thead>
+        <tr class="active">
+            <th th:text="Datum">Datum</th>
+            <th th:text="|Monatlicher Umsatz|">Monatlicher Umsatz</th>
+        </tr>
+        </thead>
+        <tbody th:remove="all-but-first">
+        <tr th:each=" item : ${monatlicherUmsatz}">
+            <td th:text="|${item.key.dayOfMonth}. ${item.key.month} ${item.key.year}|">12.12.1371</td>
+            <td th:text="${item.value}">2493,00€</td>
+        </tr>
+        <tr>
+            <td>21.04.1563</td>
+            <td>9454,00€</td>
+        </tr>
+        <tr>
+            <td>19.06.1999</td>
+            <td>5366,00€</td>
+        </tr>
+        </tbody>
+    </table>
+  </div>
+  <div class="col-md-4"></div>
+  </div>
+</div>
+</div>
+</div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+
+  <script th:src="@{/webjars/jquery/jquery.min.js}"
+          src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script th:src="@{/webjars/Semantic-UI/semantic.min.js}"
+          src="http://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.js"></script>
+  <link th:href="@{/webjars/Semantic-UI/semantic.min.css}" rel="stylesheet"
+        href="http://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.css" type="text/css"/>
+  <link th:href="@{/resources/css/bootstrap.min.css}" rel="stylesheet"
+        href="../static/resources/css/bootstrap.min.css" type="text/css"/>
+</head>
+<body>
+
+
+
+
+<nav th:fragment="navigation" class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Navigation</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+
+        <li class="nav-item">
+        <a class="nav-link" th:href="@{/login}" sec:authorize="!isAuthenticated()" th:text="#{nav.login}">Login</a>
+        </li>
+
+
+        <li class="nav-item">
+        <a class="nav-link" href="catalog.html" th:href="@{/katalog}" th:text="#{nav.blurayCatalog}">Katalog</a>
+        </li>
+
+        <li class="nav-item">
+        <a class="nav-link" href="warenkorb.html" th:href="@{/warenkorb}" th:text="#{nav.cart}">Warenkorb</a>
+        </li>
+
+        <li class="nav-item">
+        <a class="nav-link" href="bestellungen.html" th:href="@{/bestellungen}" th:text="#{nav.orders}" sec:authorize="hasRole('ROLE_Chef')">Bestellungen</a>
+        </li>
+
+        <li class="nav-item">
+		    <a class="nav-link" href="calendar.html" th:href="@{/kalender}" sec:authorize="hasAnyRole('ROLE_Chef')" th:text="#{nav.calendar}" >Kalender</a>
+        </li>
+
+        <li class="nav-item">
+        <a class="nav-link" href="/error" th:href="@{/mitarbeiterliste}" sec:authorize="hasAnyRole('ROLE_Chef')" th:text="#{nav.staff}">Mitarbeiter</a>
+        </li>
+
+        <li class="nav-item">
+        <a class="nav-link" href="/error" th:href="@{/kundenliste}" sec:authorize="hasAnyRole('ROLE_Chef')" th:text="#{nav.customers}" >Kundenliste</a>
+        </li>
+
+        <li class="nav-item">
+        <a class="nav-link" href="/error" th:href="@{/finanzen}" sec:authorize="hasAnyRole('ROLE_Chef')" th:text="#{nav.finances}" >Statiskiken</a>
+        </li>
+
+        <form class="navbar-form navbar-right" sec:authorize="isAuthenticated()" th:action="@{/logout}" method="post">
+        <button type="submit" class="btn btn-danger btn-md btn-block" th:text="#{nav.logout}">Logout</button>
+        </form>
+      </ul>
+          </div>
+</nav>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+= Protokoll Gruppe 15
+
+Treffen am 02.11.2017
+
+Ort:      APB +
+Beginn:   14:50 Uhr +
+Ende:     16:20 Uhr
+
+__Schriftführer: Marcus Dawideit__
+
+*Nächstes Treffen:* +
+09.11.2017, 14:50 Uhr, APB
+
+__Teilnehmer:__
+//Tabellarisch oder Aufzählung, Kennzeichnung von Teilnehmern mit besonderer Rolle (z.B. Kunde)
+
+- Florentin Dörre (*KUNDE*)
+- Tony Fiedler (*SCRUM MASTER*)
+- Marcus Dawideit (*PROTOKOLLANT*)
+- An Dang Thanh
+- Leon Röscher
+- Pavel Tyulnev
+
+== Bemerkungen
+
+Nächstes Gruppeninternes Treffen: 03.11.2017 (14:30).
+
+Aufgaben wurden in Form von Issues erteilt (s. unten).
+
+wichtige getroffene Entscheidungen:
+
+- Bestellungen beinhalten nun einen Warenkorb
+
+
+== Retrospektive des letzten Sprints
+
+__bis zum Treffen:__
+
+Das Pflichtenheft ist nun konsistent in der Namensgebung bzw allgemeinen Logik.
+
+Das Analyse-Klassendiagramm wurde (bis auf einige kleine Ausnahmen) fertiggestellt.
+
+Das Kontextdiagramm und die Top-Level-Architektur müssen weiterhin überarbeitet werden.
+
+__nach dem Treffen (bis ca. 16:20):__
+
+Die groben Fehler des Analyse-Klassendiagramms wurden behoben.
+
+== Aktueller Stand
+
+Kleine Prototypen abgeschlossen.
+
+Analyse-Klassendiagramm fertig.
+
+Kontextdiagramm, Top-Level-Architektur sowie Akzeptanztestfälle im Pflichtenheft unvollständig.
+
+Issues für kommende Aufgaben wurden erstellt und teilweise Gruppenmitgliedern zugeteilt.
+
+== Planung des nächsten Sprints
+*Bemerkung:* Issue referenziert die Issue ID von GitHub
+
+*Bemerkung:* "nna" = Noch nicht angefangen
+// See http://asciidoctor.org/docs/user-manual/=tables
+[option="headers"]
+|===
+|Issue |Titel |Beschreibung |Verantwortliche(r) |Status
+|#1     |Zu wenige Akzeptanztestfälle     |derzeit 8 Akzeptanztestfälle, mehr erforderlich            |Tony Fiedler                |in Bearbeitung
+|#2|Entwurfsklassendiagramme erstellen (*MILESTONE*) |Analyse-Klassendiagramm in mehrere Entwurfs-Klassendiagramme überführen|alle|nna
+|#3|Kontextdiagramm überarbeiten|mehr Interaktionen von den Akteuren ausgehend hinzufügen|Pavel Tyulnev|in Bearbeitung
+|#4|Top-Level-Architektur überarbeiten|auf Grundlage des neuen Kontextdiagramms die T-L-A erstellen|Pavel Tyulnev|in Bearbeitung
+|#5|Aufteilung der Großen Prototypen|nach grober Aufteilung des Systems "Getränkehandel" dessen Gruppierungen als Prototypen untereinander aufteilen|alle|nna
+|#6|Pflichtenheft: Produktnutzung: "Mitarbeiter kann Kunden-Konto anlegen" noch hinzufügen|(s. Titel) noch zu ergänzen|alle|in Bearbeitung
+|#7|In Readme des root-Verzeichnisses Quicklinks hinzufügen|(s. Titel)|Tony Fiedler|fertig
+|#8|Datenstruktur (Datenbank) zur persistenten Speicherung von Daten aussuchen|Datenstruktur zur Speicherung und dessen Implementierung überlegen und diskutieren|alle|nna
+|===
+
+Issues  #1, #3, #4, #6 und #7 sollen möglichst bis morgen fertig sein.
+Issues  #2, #5, #8 werden im nächsten gruppeninternen Treffen besprochen. (03.11.17)

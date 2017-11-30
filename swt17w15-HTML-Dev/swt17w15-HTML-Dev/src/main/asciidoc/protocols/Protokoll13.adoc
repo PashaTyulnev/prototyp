@@ -1,0 +1,61 @@
+= Protokoll Gruppe 15
+
+Gruppeninternes Treffen am 13.11.2017
+
+Ort:      APB +
+Beginn:   14:50 Uhr +
+Ende:     16:20 Uhr
+
+__Schriftführer: Marcus Dawideit__
+
+*Nächstes Treffen:* +
+16.11.2017, 14:50 Uhr, APB
+
+__Teilnehmer:__
+//Tabellarisch oder Aufzählung, Kennzeichnung von Teilnehmern mit besonderer Rolle (z.B. Kunde)
+
+- Tony Fiedler (*SCRUM MASTER*)
+- Marcus Dawideit (*PROTOKOLLANT*)
+- An Dang Thanh
+- Leon Röscher
+- Pavel Tyulnev
+
+== Bemerkungen
+
+Dieses Treffen diente dazu die Entwicklerdoku untereinander aufzuteilen und Prototypenhilfe zu geben.
+
+== Retrospektive des letzten Sprints
+
+Jeder sollte sich zunächst individuell mit seinen Prototypen auseinandersetzen und eventuelle Schnittstellen herausarbeiten.
+
+== Aktueller Stand
+
+Die oben erwähnten Schnittstellen sind herausgearbeitet und Prototypen teilweise schon weit erarbeitet.
+
+== Planung des nächsten Sprints (bis zum 16.11.2017)
+
+*Bemerkung:* Issue referenziert die Issue ID von GitHub
+*Bemerkung:* *NAME* = Der NAME ist der Name eines Milestones
+
+// See http://asciidoctor.org/docs/user-manual/=tables
+[option="headers"]
+|===
+|Issue |Titel |Beschreibung |Verantwortliche(r) |Status
+|#11|Große Prototypen fertigstellen|Zuteilung s. "Bemerkungen"|alle|ist fertigzustellen
+|#12|Entwicklerdoku fertigstellen (*Entwicklerdokumentation*)|Jeder soll seinen Teil zur Entwicklerdoku beitragen|alle|ist fertigzustellen
+|#13|Einführung und Ziele eintragen (*Entwicklerdokumentation*)|Die Unterpunkte von Einführung und Ziele aus dem Pflichtenheft kopieren.|Tony Fiedler|ist fertigzustellen
+|#14|Randbedingungen eintragen (*Entwicklerdokumentation*)|Unterpunkte von Randbedingungen in die Entwicklerdoku eintragen.|Leon Röscher|ist fertigzustellen
+|#15|Kontextabgrenzung eintragen (*Entwicklerdokumentation*)|Kontextabgrenzung in die Entwicklerdoku eintragen. (SalesPoint, Spring, GoogleCalendar, Java libraries)|Tony Fiedler|ist fertigzustellen
+|#16|Lösungsstrategien (*Entwicklerdokumentation*)|Jeder Gruppenteilnehmer begründet Lösungsstrategien, welche er in seinem Package verwenden wird und trägt diese in die Entwicklerdoku ein.|Pavel Tyulnev, Leon Röscher|ist fertigzustellen
+|#17|Entwurfsdiagramme anpassen (*Entwicklerdokumentation*)|(s. Titel)|alle|ist fertigzustellen
+|#18|Bausteinsicht (*Entwicklerdokumentation*)|Unterpunkt von Bausteinsicht in die Entwicklerdoku eintragen.|Marcus Dawideit|ist fertigzustellen
+|#19|Entwurfsentscheidungen Unterpunkt Architektur (*Entwicklerdokumentation*)|Unterpunkt Architektur in die Entwicklerdoku eintragen.|Marcus Dawideit|ist fertigzustellen
+|#20|Entwurfsentscheidungen Unterpunkt Verwendete Muster (*Entwicklerdokumentation*)|Unterpunkt Verwendete Muster in die Entwicklerdoku eintragen. Jeder trägt seine eigenen verwendeten Muster ein.|alle|ist fertigzustellen
+|#21|Entwurfsentscheidungen Unterpunkt Persistenz (*Entwicklerdokumentation*)|Unterpunkt Persistenz in die Entwicklerdoku eintragen.|Tony Fiedler|ist fertigzustellen
+|#22|Entwurfsentscheidungen Unterpunkt Benutzeroberfläche (*Entwicklerdokumentation*)|Unterpunkt Benutzeroberfläche in die Entwicklerdoku eintragen.|Tony Fiedler|ist fertigzustellen
+|#23|Test Plan erstellen (*Test Plan*)|- Marcus: 1xxx
+- Leon: 2xxx
+- Pavel: 3xxx
+- An: 4xxx
+- Tony: 5xxx|alle|ist fertigzustellen
+|===

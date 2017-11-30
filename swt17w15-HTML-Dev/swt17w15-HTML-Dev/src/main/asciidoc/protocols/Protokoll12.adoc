@@ -1,0 +1,97 @@
+= Protokoll Gruppe 15
+
+Treffen am 16.11.2017
+
+Ort:      APB +
+Beginn:   14:50 Uhr +
+Ende:     17:00 Uhr
+
+__Schriftführer: Marcus Dawideit__
+
+*Nächstes Treffen:* +
+23.11.2017, 14:50 Uhr, APB
+
+__Teilnehmer:__
+//Tabellarisch oder Aufzählung, Kennzeichnung von Teilnehmern mit besonderer Rolle (z.B. Kunde)
+
+- Florentin Dörre (*KUNDE*)
+- Tony Fiedler (*SCRUM MASTER*)
+- Marcus Dawideit (*PROTOKOLLANT*)
+- An Dang Thanh
+- Leon Röscher
+- Pavel Tyulnev
+
+== Bemerkungen
+
+__Offene Punkte in Entwicklerdoku__:
+
+- Lösungsstrategie Logistik- und Getränkemanagement
+- Gliederung
+- Abschnitt "Entwurfsentscheidungen"
+- Glossar (Link zu Frameworks, etc.)
+
+Prototypen wurden vorgezeigt und müssen bis zum Sonntag 19.11.2017 fertiggestellt werden.
+
+Jedes Gruppenmitglied hat dabei eigene Aufträge bekommen um die er sich selbstständig kümmern wird.
+
+Test-Plan muss ebenfalls vervollständigt werden.
+
+In 2 Wochen sollen folgende Kriterien zusätzlich zu den Grundfunktionalitäten der Prototypen implementiert sein:
+
+- Ein-/Ausloggen
+- Personen und Getränke anlegen/bearbeiten/entfernen
+- Lohnübersicht
+- Bestand der Artikel verringern/aufstocken/anzeigen
+- Lagerübersicht/Katalog
+- Artikel zum Katalog hinzufügen/entfernen
+- Bestellungsübersicht mit veränderbaren Status
+- Übersicht über Ein- und Ausgaben und abgeschlossener Bestellungen
+- Übersicht über monatliche Lohnabbuchungen
+- Katalog soll beim Kauf automatisch die Stückzahl verringern
+- Lieferant soll eine "TO-DO" Liste haben
+
+Gruppenintern wurde festgelegt, dass bis Montag die überarbeiteten Prototypen zusammen in einem Projekt zusammengefasst werden sollen.
+
+Außerdem wurden diverse Schnittstellen besprochen, um die sich jeder Betroffene für seinen Teilbereich (Aufteilung bleibt weiterhin wie bei den Prototypen) Gedanken machen soll.
+
+== Retrospektive des letzten Sprints
+
+*Bemerkung:* Issue referenziert die Issue ID von GitHub
+// See http://asciidoctor.org/docs/user-manual/=tables
+[option="headers"]
+|===
+|Issue |Titel |Beschreibung |Verantwortliche(r) |Status
+|#2|Entwurfsklassendiagramme erstellen (*MILESTONE*) |z.T. Klassendiagramme überarbeiten und zusammenführen|alle|fertig (weitere Änderungen wahrscheinlich)
+|#11|Große Prototypen fertigstellen|Zuteilung s. "Bemerkungen"|alle|Bugfixing, bzw. geforderte Funktionalitäten werden erweitert
+|#12|Entwicklerdoku fertigstellen|Jeder soll seinen Teil zur Entwicklerdoku beitragen|alle|geforderte Funktionalitäten werden erweitert
+|===
+
+== Aktueller Stand
+
+Große Prototypen fast fertig.
+
+Entwicklerdoku in einigen Punkten unvollständig.
+
+Entwurfsklassendiagramme sind fertiggestellt, werden aber wahrscheinlich dennoch dynamisch zum Fortschritt verändert.
+
+== Planung des nächsten Sprints (bis zum 20.11.2017)
+
+*Bemerkung:* Issue referenziert die Issue ID von GitHub
+*Bemerkung:* *NAME* = Der NAME ist der Name eines Milestones
+
+// See http://asciidoctor.org/docs/user-manual/=tables
+[option="headers"]
+|===
+|Issue |Titel |Beschreibung |Verantwortliche(r) |Status
+|#11|Große Prototypen fertigstellen|Zuteilung s. "Bemerkungen"|alle|ist fertigzustellen
+|#12|Entwicklerdoku fertigstellen|Jeder soll seinen Teil zur Entwicklerdoku beitragen|alle|ist fertigzustellen
+|#14|Randbedingungen eintragen (*Entwicklerdokumentation*)|Unterpunkte von Randbedingungen in die Entwicklerdoku eintragen.|alle|ist fertigzustellen
+|#16|Lösungsstrategien (*Entwicklerdokumentation*)|Jeder Gruppenteilnehmer begründet Lösungsstrategien, welche er in seinem Package verwenden wird und trägt diese in die Entwicklerdoku ein.|Pavel Tyulnev, Leon Röscher|ist fertigzustellen
+|#19|Entwurfsentscheidungen Unterpunkt Architektur (*Entwicklerdokumentation*)|Unterpunkt Architektur in die Entwicklerdoku eintragen.|Marcus Dawideit|ist fertigzustellen
+|#20|Entwurfsentscheidungen Unterpunkt Verwendete Muster (*Entwicklerdokumentation*)|Unterpunkt Verwendete Muster in die Entwicklerdoku eintragen. Jeder trägt seine eigenen verwendeten Muster ein.|alle|ist fertigzustellen
+|#23|Test Plan erstellen (*Test Plan*)|- Marcus: 1xxx
+- Leon: 2xxx
+- Pavel: 3xxx
+- An: 4xxx
+- Tony: 5xxx|alle|ist fertigzustellen
+|===

@@ -1,0 +1,85 @@
+= Protokoll Gruppe 15
+
+Gruppeninternes Treffen am 03.11.2017
+
+Ort:      APB +
+Beginn:   14:50 Uhr +
+Ende:     18:10 Uhr
+
+__Schriftführer: Marcus Dawideit__
+
+*Nächstes Treffen:* +
+09.11.2017, 14:50 Uhr, APB
+
+__Teilnehmer:__
+//Tabellarisch oder Aufzählung, Kennzeichnung von Teilnehmern mit besonderer Rolle (z.B. Kunde)
+
+- Tony Fiedler (*SCRUM MASTER*)
+- Marcus Dawideit (*PROTOKOLLANT*)
+- An Dang Thanh
+- Leon Röscher
+- Pavel Tyulnev
+
+== Bemerkungen
+
+Nächstes Gruppeninternes Treffen: 06.11.2017.
+
+Aufgaben wurden in Form von Issues erteilt (s. unten).
+
+wichtige getroffene Entscheidungen:
+
+- Erstellung einer Finanzdatenbank zum Speichern von älteren Ausgaben erforderlich
+- Jede Person wird durch einen UserAccount (Salespoint) identifiziert
+- Funktionen des Kassierer/Chefs/Fahrer nicht im Entwurfs-Klassendiagramm realisierbar
+- Lieferplan des Fahrers zum Logistiksystem
+- somit kann auf die Unterklassen Kassierer/Chef/Fahrer verzichtet werden, da diese nur durch ihre "role" in den "Useraccounts" unterschieden werden
+- Adresse als eigene Klasse, die sowohl die Straße als auch Zone, PLZ, etc. enthält
+
+Aufteilung des Entwurfklassendiagramms in folgende Teilgebiete:
+
+- Mitarbeitermanagement (Person & Unterklassen, Kundenverwaltung)
+- Finanzmanagement (Statistiken, Finanzdatenbank, Ausgaben der geforderten Werte)
+- Logistikmanagement (Kalender, Logistiksystem & Zone)
+- Getränkemanagement (Getränkekatalog & Artikel)
+- Bestellungsmanagement (Warenkorb, Bestellformular & Bestellung)
+
+
+== Retrospektive des letzten Sprints
+
+|===
+|Issue |Titel |Beschreibung |Verantwortliche(r) |Status
+|#2|Entwurfsklassendiagramme erstellen (*MILESTONE*) |Analyse-Klassendiagramm in mehrere Entwurfs-Klassendiagramme überführen|alle|Angefangen
+|#3|Kontextdiagramm überarbeiten|mehr Interaktionen von den Akteuren ausgehend hinzufügen|Pavel Tyulnev|fast fertig
+|#4|Top-Level-Architektur überarbeiten|auf Grundlage des neuen Kontextdiagramms die T-L-A erstellen|Pavel Tyulnev|fast fertig
+|===
+
+== Aktueller Stand
+
+Grobe Ideen zur allgemeinen Struktur des Getränkehandels gemacht.
+
+Klassen "Artikel", "Person", "Adresse" & "Mitarbeiter" entworfen. (mit Salespoint)
+
+== Planung des nächsten Sprints (bis zum 6.11.)
+
+*Bemerkung:* Issue referenziert die Issue ID von GitHub
+// See http://asciidoctor.org/docs/user-manual/=tables
+[option="headers"]
+|===
+|Issue |Titel |Beschreibung |Verantwortliche(r) |Status
+|#1     |Zu wenige Akzeptanztestfälle     |derzeit 8 Akzeptanztestfälle, mehr erforderlich            |Tony Fiedler                |in Bearbeitung
+|#3|Kontextdiagramm überarbeiten|mehr Interaktionen von den Akteuren ausgehend hinzufügen|Pavel Tyulnev|fast fertig
+|#4|Top-Level-Architektur überarbeiten|auf Grundlage des neuen Kontextdiagramms die T-L-A erstellen|Pavel Tyulnev|fast fertig
+|#6|Pflichtenheft: Produktnutzung: "Mitarbeiter kann Kunden-Konto anlegen" noch hinzufügen|(s. Titel) noch zu ergänzen|alle|in Bearbeitung
+|#9|Analyse SalesPoint-Framework mit groben Funktionsbereichen|Die Hauptfunktionen des Getränkehandels wurden in grobe Teile untergliedert und den Projektteilnehmern zugeordnet. Es sollen die Implementierungsmöglichkeiten mit Hilfe des SalesPoint-Frameworks geprüft werden und Abhängigkeiten der Klassen untereinander bis Mo, 06.11..
+Außerdem soll jedes Gruppenmitglied benötigte Methoden aus den anderen Teilbereichen herausarbeiten, wenn notwendig.|alle|in Bearbeitung
+|===
+
+zu #9:
+
+Zuteilung:
+
+- __Leon Röscher__: Getränkemanagement
+- __Marcus Dawideit__: Bestellungsmanagement
+- __Pavel Tyulnev__: Logistikmanagement
+- __Tony Fiedler__: Mitarbeitermanagement
+- __An Dang Thanh__: Finanzmanagement

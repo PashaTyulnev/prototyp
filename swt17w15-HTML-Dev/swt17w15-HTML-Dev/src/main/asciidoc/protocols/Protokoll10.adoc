@@ -1,0 +1,61 @@
+= Protokoll Gruppe 15
+
+Gruppeninternes Treffen am 07.11.2017
+
+Ort:      APB +
+Beginn:   13:00 Uhr +
+Ende:     14:30 Uhr
+
+__Schriftführer: Marcus Dawideit__
+
+*Nächstes Treffen:* +
+09.11.2017, 14:50 Uhr, APB
+
+__Teilnehmer:__
+//Tabellarisch oder Aufzählung, Kennzeichnung von Teilnehmern mit besonderer Rolle (z.B. Kunde)
+
+- Tony Fiedler (*SCRUM MASTER*)
+- Marcus Dawideit (*PROTOKOLLANT*)
+- An Dang Thanh
+- Leon Röscher
+
+== Bemerkungen
+
+Dieses Treffen diente dazu die übrigen Schnittstellen zu entwerfen und um sich generell zu den Entwurfsklassendiagrammen abzusprechen.
+
+Es wurden keine wichtigen Entscheidungen getroffen.
+
+== Retrospektive des letzten Sprints
+
+|===
+|Issue |Titel |Beschreibung |Verantwortliche(r) |Status
+|#2|Entwurfsklassendiagramme erstellen (*MILESTONE*) |Analyse-Klassendiagramm in mehrere Entwurfs-Klassendiagramme überführen|alle|in Bearbeitung
+|#3|Kontextdiagramm überarbeiten|mehr Interaktionen von den Akteuren ausgehend hinzufügen|Pavel Tyulnev|fertig
+|#4|Top-Level-Architektur überarbeiten|auf Grundlage des neuen Kontextdiagramms die T-L-A erstellen|Pavel Tyulnev|fertig
+|#9|Analyse SalesPoint-Framework mit groben Funktionsbereichen (ff.)|Es wurden nun die Klassenschnittstellen definiert. Nun soll jeder individuell, falls es in seinem Teilabschnitt Klassen dieser Schnittstellen gibt, diese entwerfen. (Zuteilung s. unten)|alle|fertig
+|===
+
+== Aktueller Stand
+
+Klassenentwurf für alle Schnittstellen der unterschiedlichen Teilbereiche (Bestellung, Artikel, Person,...) komplett.
+
+== Planung des nächsten Sprints (bis zum 9.11.)
+
+*Bemerkung:* Issue referenziert die Issue ID von GitHub
+// See http://asciidoctor.org/docs/user-manual/=tables
+[option="headers"]
+|===
+|Issue |Titel |Beschreibung |Verantwortliche(r) |Status
+|#2|Entwurfsklassendiagramme erstellen (*MILESTONE*) |Analyse-Klassendiagramm in mehrere Entwurfs-Klassendiagramme überführen|alle|in Bearbeitung
+|#9|Analyse SalesPoint-Framework mit groben Funktionsbereichen (ff.)|Jeder soll nun seinen zugeteilten Teilbereich entwerfen. (Zuteilung s. unten)|alle|in Bearbeitung
+|===
+
+zu #9:
+
+Zuteilung:
+
+- __Leon Röscher__: Getränkemanagement
+- __Marcus Dawideit__: Bestellungsmanagement
+- __Pavel Tyulnev__: Logistikmanagement
+- __Tony Fiedler__: Mitarbeitermanagement
+- __An Dang Thanh__: Finanzmanagement

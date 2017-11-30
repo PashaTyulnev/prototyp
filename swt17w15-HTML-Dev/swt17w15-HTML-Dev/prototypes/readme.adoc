@@ -1,0 +1,11 @@
+# Prototypen vom VideoShop
+
+[options="header", cols="1h, 4"]
+|===
+|Name |Prototyp Aufgabe
+|An Dang Thanh |Die Möglichkeit, dass der Boss Artikel entfernen kann aus dem Katalog&Lager.
+|Leon Röscher |Das der Boss einzelne Artikel im Lager aufstocken kann.
+|Tony Fiedler |Die Funktion, die Personendaten zu ändern.
+|Pavel Tyulnev |Die Funktion im Katalog nach Waren zu suchen (via Suchfeld).
+|Marcus Dawideit |Der Bugfix der in der Vorlesung vorgeschlagen wurde.
+|===

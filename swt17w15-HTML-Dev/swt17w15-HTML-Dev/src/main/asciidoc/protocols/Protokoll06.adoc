@@ -1,0 +1,58 @@
+= Protokoll Gruppe 15
+
+Treffen am 31.10.2017
+
+Ort:      APB +
+Beginn:   12:00 Uhr +
+Ende:     14:40 Uhr
+
+__Schriftführer: Marcus Dawideit__
+
+*Nächstes Treffen:* +
+02.11.2017, 14:50 Uhr, APB
+
+__Teilnehmer:__
+//Tabellarisch oder Aufzählung, Kennzeichnung von Teilnehmern mit besonderer Rolle (z.B. Kunde)
+
+- Tony Fiedler (SCRUM MASTER)
+- Marcus Dawideit (PROTOKOLLANT)
+- An Dang Thanh
+- Leon Röscher
+- Pavel Tyulnev
+
+== Bemerkungen
+Dieses Treffen diente zur gemeinsamen Bearbeitung des Analyse-Klassendiagramms, zur gegenseitigen Hilfe bez. der Prototypen und zur Absprache der ausstehenden Aufgaben.
+
+Im Analyse-KD wurde auf Getter und Setter verzichtet.
+
+zum Analyse-KD:
+
+- Klassennamen wurden überarbeitet (konsistent zum Pflichtenheft)
+- teilweise wurden Methoden und Attribute hinzugefügt/geändert
+- vorerst ist die Website für die Anzeige bzw. Ausgabe verantwortlich
+
+wichtige getroffene Entscheidungen:
+
+- Die Bestellungsdatenbank ist nicht mehr für die Erstellung von Bestellungen verantwortlich, sondern diese werden stattdessen im Warenkorb bereits erstellt
+
+Die offenen Punkte "Akzeptanztestfälle", "Glossar" und "Klassenenumerationen" wurden verteilt. (s. unten)
+
+== Retrospektive des letzten Sprints
+
+Jeder hat sich mit seinen Prototypen auseinandergesetzt und bereits angefangen erste Ansätze zu programmieren.
+
+Das Pflichtenheft wurde auf Konsistenz geprüft und größtenteils angepasst. (Bis Donnerstag weitere Anpassungen möglich)
+
+== Aktueller Stand
+
+Pflichtenheft fast fertig.
+
+Prototypen teilweise fertig, teilweise kurz vor der Fertigstellung.
+
+== Planung des nächsten Sprints
+
+Aufgabenverteilung:
+
+- Tony Fiedler: __"Akzeptanztestfälle"__
+- An Dang Thanh: __"Glossar"__
+- Leon Röscher: __"Klassenenumerationen"__

@@ -1,0 +1,45 @@
+= Protokoll Gruppe 15
+
+Gruppeninternes Treffen am 25.10.2017
+
+Ort:      WIL +
+Beginn:   9:20 Uhr +
+Ende:     12:40 Uhr
+
+__Schriftführer: Marcus Dawideit__
+
+*Nächstes Treffen:* +
+26.10.2017, 14:50 Uhr, APB
+
+__Teilnehmer:__
+//Tabellarisch oder Aufzählung, Kennzeichnung von Teilnehmern mit besonderer Rolle (z.B. Kunde)
+
+- Tony Fiedler (SCRUM MASTER)
+- Marcus Dawideit (PROTOKOLLANT)
+- Leon Röscher
+- An Dang Thanh
+- Pavel Tyulnev
+
+== Bemerkungen
+
+Die in diesem Treffen aufgegebene Aufgaben werden zum 26.10. gestellt.
+
+== Retrospektive des letzten Sprints
+
+Erster (fast) vollständiger Stand des Pflichtenhefts wurde abgeschlossen.
+
+Bis zu diesem Treffen fehlende Teile sind Akzeptanzfälle und der Abschnitt "Datenmodell".
+
+== Aktueller Stand
+
+Datenmodell wurde umfangreich besprochen, jedoch noch nicht fertiggestellt.
+
+Absprachen bez. des GUI Prototyps wurden getätigt und muss teilweise noch in Einklang mit den im Pflichtenheft erwähnten Funktionen gebracht werden.
+
+CRC - Kartenmethode fast fertig.
+
+Analyse-Klassendiagramm wurde angefangen.
+
+== Planung des nächsten Sprints
+
+Pavel Tyulnev und Marcus Dawideit werden sich um die Verbesserung des GUI Prototyps kümmern, während sich die anderen um den Abschnitt "Datenmodell" kümmern werden.

@@ -1,0 +1,50 @@
+= Protokoll Gruppe 15
+
+Gruppeninternes Treffen am 23.11.2017
+
+Ort:      APB +
+Beginn:   14:50 Uhr +
+Ende:     16:20 Uhr
+
+__Schriftführer: Marcus Dawideit__
+
+*Nächstes Treffen:* +
+30.11.2017, 14:50 Uhr, APB
+
+__Teilnehmer:__
+//Tabellarisch oder Aufzählung, Kennzeichnung von Teilnehmern mit besonderer Rolle (z.B. Kunde)
+
+- Florentin Dörre (*KUNDE*)
+- Tony Fiedler (*SCRUM MASTER*)
+- Marcus Dawideit (*PROTOKOLLANT*)
+- An Dang Thanh
+- Leon Röscher
+- Pavel Tyulnev
+
+== Bemerkungen
+
+In diesem Treffen wurde die Zwischenpräsentation sowie Rücksprachen bezüglich der Grundfunktionalitäten, die bis zum nächsten Treffen zu erledigen sind, gehalten.
+Danach wurden Gruppenintern noch diverse Entscheidungen bezüglich der Erfüllung der Funktionalitäten getroffen.
+
+*Nächstes Gruppeninternes Treffen:* 27.11.2017 14:50 APB
+
+__wichtige Entscheidung:__ das Projekt soll auch noch mithilfe des Bootstrap Frameworks optisch verändert werden.
+
+== Retrospektive des letzten Sprints
+
+Die großen Prototypen wurden in ein großes Projekt zusammengeführt und die zusammenwirkenden Teilbereiche wurden miteinander verbunden.
+Außerdem haben sich einige Gruppenmitglieder zwischenzeitlich getroffen, um die Zwischenpräsentation zu planen.
+
+[option="headers"]
+|===
+|Issue |Titel |Beschreibung |Verantwortliche(r) |Status
+|#26|Themen für die Zwischenpräsentation *Zwischenpräsentation*|s. Titel|alle|wurde abgeschlossen
+|===
+
+== Aktueller Stand
+
+Alle Protoypen wurden miteinander verbunden und funktionieren in Zusammenarbeit.
+
+== Planung des nächsten Sprints (bis zum 16.11.2017)
+
+Die kommende Woche dient nur zum Bearbeiten der geforderten Kriterien.

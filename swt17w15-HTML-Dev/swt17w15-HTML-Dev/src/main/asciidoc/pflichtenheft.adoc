@@ -1,0 +1,1415 @@
+:project_name: Getränkehandel Schluck & Sohn
+= Pflichtenheft __{project_name}__
+:revnumber: 1.1
+:revdate: {docdatetime}
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:toc: left
+:numbered:
+
+[options="header"]
+[cols="1, 1, 1, 1, 4"]
+|===
+|Version | Status      | Bearbeitungsdatum   | Autoren(en) |  Vermerk
+|0.1     | In Arbeit   | 10.10.2017          | Autor       | Initiale Version
+|0.2    | In Arbeit  | 22.10.2017    | Tony Fiedler   | Angefangen projektspezifische Analyse hinzuzufügen
+|0.21    | In Arbeit  | 24.10.2017    | Leon Röscher  | Qualitätsziele hinzugefügt
+|0.3    | In Arbeit | 24.10.2017    | Tony Fiedler | Funktionale Anforderungen und Anwendungsfallbeschreibungen abgeschlossen
+|0.31    | In Arbeit | 25.10.2017    | Marcus Dawideit / Pavel Tyulnev | GUI Prototyp abgeschlossen
+|0.32    | In Arbeit | 26.10.2017    | Tony Fiedler | Funktionale Anforderungen und Anwendungsfallbeschreibungen geändert
+|0.33    | In Arbeit | 26.10.2017    | Tony Fiedler | Konsistenzprüfung des Textes
+|0.34    | In Arbeit | 28.10.2017    | An Dang Thanh | Anwendungsfalldiagramm bearbeitet
+|0.40    | In Arbeit | 29.10.2017    | Tony Fiedler | Kleinere Fehler in der Formatierung behoben und Sequenzdiagramme, Anwendungsfall <<UC0650>> hinzugefügt.
+|0.50    | In Arbeit | 31.10.2017    | Leon Röscher | Analyseklassendiagramm fertiggestellt
+|0.51    | Letzte Anpassungen | 01.11.2017    | Tony Fiedler | Akzeptanztestfälle fertiggestellt
+|0.52    | Letzte Anpassungen | 01.11.2017    | An Dang Thanh | Glossar erstellt
+|0.53    | Letzte Anpassungen | 01.11.2017    | Tony Fiedler | *Offene Punkte* entfernt, UC630 entfernt (da redundant). AT0450 hinzugefügt.
+|1.0    | Pflichtenheft fertiggestellt | 01.11.2017    | Tony Fiedler | Pfadanpassungen zu Diagrammen durchgeführt.
+|1.1    | Pflichtenheft fertiggestellt | 04.11.2017    | Tony Fiedler | Weitere Akzeptanztestfälle hinzugefügt, zu <<UC0510>> Beschreibung hinzugefügt, <<UC0520>> henzugefügt, <<F0503>> hinzugefügt, <<F0504>> hinzugefügt
+|===
+
+== Zusammenfassung
+Dieses Dokument stellt das Pflichtenheft des Projekts **{project_name}** der Gruppe 15 des Softwaretechnologie-Praktikums im WS 2017 dar und gibt einen Überblick zum aktuellen Stand des Software-Projekts.
+
+Es stellt die Basis zur Kommunikation zwischen dem Auftraggeber des Projektes und den Gruppenmitgliedern (Entwicklerteam) dar.
+
+== Aufgabenstellung und Zielsetzung
+
+Im Folgenden ist der Tutor der Gruppe 15 als Auftraggeber des Projektes zu verstehen.
+
+
+Der Getränkehandel beliefert nicht nur Supermärkte und kleinere Abnehmer, sondern betreibt selbst
+auch eine kleine Verkaufsstelle und beliefert größere Events. Das nachträgliche Ändern oder Stornieren von Bestellungen für Großbestellungen soll nur maximal drei Tage vor dem Auslieferungstermin möglich sein. Kleine Bestellungen sind bis zum Fahrtantritt des Lieferanten stornierbar.
+
+Neben dem bereits erwähnten Direktverkauf muss es auch möglich sein Kunden anzulegen, Kostenvoranschläge und Aufträge zu erstellen. Die Rechnungserstellung und ist ein Kann-Kriterium. Dabei sollen Kunden die Möglichkeit haben, sich auf der Website des {project_name} zum aktuellen Sortiment informieren zu können, eine Bestellung zusammenstellen und einen Liefertermin, welche dann telefonisch einem Mitarbeiter des Handels übermittelt wird.
+
+Es soll nach bestimmten Getränken gesucht werden und durch den Einsatz von Filtern, bzw. Kategorien sich schnell einen Überblick über das Sortiment verschafft werden können. Dies gilt sowohl für Kunden, als auch für die Mitarbeiter des {project_name}.
+
+Um die Logistik zu verwalten soll der Vorrat an Getränken einsehbar sein und das Lager nach Stückzahlen sortiert werden können.
+Außerdem werden Zonen eingerichtet, in denen die entsprechenden
+Abnahmestellen der Kunden liegen. Zu den Zonen sind auch die Fahrzeiten bekannt. Lieferanten des
+Getränkehandel müssen am Morgen eine sinnvolle Auflistung ihrer zu beliefernden Abnehmer in
+einer oder mehreren benachbarten Zonen erhalten. Außerdem sollen Zeiten berechnet werden, wie lange der jeweilige Lieferant für die Lieferungen benötigen wird. Die Liefertermine sollen in einem Kalender anschaulich dargestellt werden.
+
+Weiterhin wird ein Kundenverzeichnis mit Kundendaten benötigt, welches von den Mitarbeitern eingesehen werden kann, um bei eventuellen Lieferschwierigkeiten auf Kontaktdaten zurückzugreifen zu können.
+
+Der Chef ist der Administrator der Software und kann Einsicht in die Statistiken über die Auslastung des Getränkehandels und die Bestellübersicht bekommen. Das Löschen und Hinzufügen von Mitarbeiterkonten, das Aufstocken des Getränkebestandes, sowie die Änderung der Akteurzugehörigkeit einzelner Mitarbeiter (Kassierer, Lieferant, Chef) soll ebenfalls nur vom Administrator durchgeführt werden können.
+
+Das Hauptziel des Projektes ist das Resultat, eine funktionierende, nutzerfreundliche und intuitiv zu bedienende Software zum Management des {project_name} erstellt zu haben, mit welcher der Kunde (hier Tutor der Gruppe 15) zufrieden ist. Gruppeninterne Nebenziele sind erste Kontakte mit dem Projektmanagement erfolgreich zu absolvieren und die Vertiefung der Softwareentwicklung im Großen mit Java und den Frameworks Spring und SalesPoint.
+
+== Produktnutzung
+Die Software läuft auf einem (Java-basierten) Webserver des {project_name} mit Hilfe der Spring- und Salespoint-Frameworks. Die Clients (Computer des Handels, bzw. Heimcomputer der Getränkehandel-Kunden; keine speziellen Softwareanforderungen erforderlich) greifen über einen Webbrowser (Mozilla Firefox 56+ wird empfohlen) auf die Dienste des Servers zu.
+
+Dadurch soll die Software den Angestellten und dem Chef als zentraler Punkt für die Getränkehandelverwaltung dienen.
+
+Des Weiteren soll für Kunden das Sortiment online zur Einsicht gestellt werden, damit diese telefonisch Bestellungen an Mitarbeiter aufgeben können.
+
+Die Kassierer wiederum erstellen und verwalten die Bestellungen mit Hilfe der Software. Außerdem kann dieser Akteur auch Kundenkonten hinzufügen.
+Lieferanten des {project_name} stellen sich Lieferrouten in bestimmte Zonen zu den Kunden digital zusammen.
+
+[[stakeholder]]
+== Interessensgruppen (Stakeholders)
+Der Auftraggeber (Chef des {project_name}) wünscht sich eine einfach und intuitiv zu bedienende Software zur Verwaltung des Getränkesortiments, zur Mitarbeiter-Verwaltung und zur Einsicht in Statistiken und Bestellungen, sowie Rechnungen.
+
+Die Mitarbeiter haben bis auf die Management-Funktionen die Selben Anforderungen wie der Chef. Außerdem möchten sie Verkäufe und auch größere Aufträge schneller abwickeln.
+
+Die letzte Interessengruppe sind die Kunden, welche nicht mit den Management- und Verkaufsfunktionen in Kontakt treten, sondern über ihren Browser das Getränkesortiment durchsuchen können.
+
+== Systemgrenze und Top-Level-Architektur
+
+=== Kontextdiagramm
+Das Kontextdiagramm zeigt das geplante Software-System in seiner Umgebung. Zur Umgebung gehören alle Nutzergruppen des Systems und Nachbarsysteme.
+
+[[home_image]]
+image::.\models\analysis\Kontextdiagramm.jpg[Landing page, 50%, 50%, pdfwidth=50%, title= "Kontextdiagramm", align=left]
+
+=== Top-Level-Architektur
+image::.\models\analysis\Toplevel-Architektur.jpg[Landing page, 50%, 50%, pdfwidth=50%, title= "Top-Level-Architektur", align=left]
+
+== Anwendungsfälle
+
+[[actors]]
+=== Akteure
+Diese Tabelle gibt einen Überblick über die Akteure und beschreibt sie kurz.
+// See http://asciidoctor.org/docs/user-manual/#tables
+[options="header"]
+[cols="1,4"]
+|===
+|Name |Beschreibung
+|Chef  |Der Chef hat die meisten Rechte in der Software und kann administrative Aufgaben durchführen (z.B. das Hinzufügen und Löschen von Mitarbeiter-Konten und Ändern des Getränkebestandes, sowie die Einsicht in verschiedene Statistiken des {project_name}).
+|Kassierer |Kassierer können Bestellungen in Auftrag geben, löschen und bearbeiten (telefonisch mit dem Kunden). Außerdem können sie direkt in der Filiale Käufe abwickeln.
+|Lieferant |Lieferanten können aktuelle Aufträge sehen und die Lieferungen für die Fahrt zusammenstellen.
+|Kunde |Kunden können sich den Katalog ansehen und haben die Möglichkeit dem Warenkorb Artikel hinzuzufügen beziehungsweise Artikel zu entfernen.
+|===
+
+=== Überblick Anwendungsfalldiagramm
+[[anwendungsfalldiagramm_image]]
+image::.\models\analysis\Anwendungsfalldiagramm.jpg[Anwendungsfalldiagramm, 100%, 100%, pdfwidth=100%, title= "Anwendungsfalldiagramm", align=center]
+
+
+=== Anwendungsfallbeschreibungen
+
+[[UC0000]]
+|===
+|ID                         |**<<UC0000>>**
+|Name                       |Getränkekatalog ansehen
+|Beschreibung               |Der Getränkekatalog kann eingesehen werden als Auflistung der Getränke. Nur noch vorhandene Getränke werden angezeigt (inkl. Stückzahlen). Der Chef sieht außerdem die Getränke, welche nicht mehr im Lager vorhanden sind.
+|Benötigte Funktionen       |<<F0001>>, <<F0210>>
+|===
+
+[[UC0010]]
+|===
+|ID                         |**<<UC0010>>**
+|Name                       |Detailansicht Getränk
+|Beschreibung               |Es sollen weitere Informationen zum Getränk auf einer neuen Seite angezeigt werden (Kategorien, Bestand, ...). Außerdem kann der Chef das Getränk ändern.
+|Akteure                    |Person
+|Benötigte Funktionen       |<<F0209>>
+|===
+
+[[UC0001]]
+|===
+|ID                         |**<<UC0001>>**
+|Name                       |Getränke sortieren
+|Beschreibung               |Der Getränkekatalog soll nach bestimmten Kriterien (Name, Preis) sortiert werden. Zusätzlich kann der Chef die Getränke nach ihrem aktuellen Bestand sortieren.
+|Akteure                    |Person, Chef
+|Benötigte Funktionen       |<<F0001>>, <<F0213>>
+|===
+
+[[UC0002]]
+|===
+|ID                         |**<<UC0002>>**
+|Name                       |Getränkeliste filtern
+|Beschreibung               |Getränkeliste kann nach bestimmten Kriterien (zum Beispiel alkoholfrei, alkoholisch, Säfte, Weine, Wasser) gefiltert werden.
+|Akteure                    |Person
+|Benötigte Funktionen       |<<F0001>>, <<F0211>>
+|===
+
+[[UC0003]]
+|===
+|ID                         |**<<UC0003>>**
+|Name                       |Getränk suchen
+|Beschreibung               |Möglichkeit der Suche nach bestimmten Getränkenamen im Katalog.
+|Akteure                    |Person
+|Benötigte Funktionen       |<<F0001>>, <<F0212>>
+|===
+
+[[UC0100]]
+|===
+|ID                         |**<<UC0100>>**
+|Name                       |Bestellung hinzufügen (Bestellformular öffnen)
+|Beschreibung               |Kassierer soll in der Lage sein, aus dem Warenkorb das Bestellformular zu öffnen, um einen Kunden auszuwählen/neu anzulegen (anonymer Kunde bei Ladenbestellung), Liefertermin im Kalender und Lieferadresse einzutragen und die Bestellung zu erstellen. Außerdem kann festgelegt werden, ob es sich im eine Großbestellung (für Event-Kunden) handelt. Für Kunden, welche direkt im Laden bestellen, sollen kein Liefertermin und keine Lieferadresse festgelegt werden.
+|Akteure                    |Kassierer
+|Benötigte Funktionen       |<<F0001>>, <<F0301>>, <<F0203>>, <<F0207>>, <<F0305>>
+|===
+
+[[UC0110]]
+|===
+|ID                         |**<<UC0110>>**
+|Name                       |Bestellung ändern
+|Beschreibung               |Bestellung des Kunden wird geändert (Arikel hinzugefügt/gelöscht, Menge geändert, Liefertermin geändert), sofern eine Änderung noch zulässig ist.
+|Akteure                    |Kassierer
+|Benötigte Funktionen       |<<F0001>>, <<F0302>>, <<F0307>>
+|===
+
+[[UC0120]]
+|===
+|ID                         |**<<UC0120>>**
+|Name                       |Bestellung löschen
+|Beschreibung               |Bestellung des Kunden wird gelöscht durch Kassierer, sofern das Löschen noch zulässig ist.
+|Akteure                    |Kassierer
+|Benötigte Funktionen       |<<F0001>>, <<F0303>>, <<F0307>>
+|===
+
+[[UC0200]]
+|===
+|ID                         |**<<UC0200>>**
+|Name                       |Bestellungsliste anzeigen
+|Beschreibung               |Alle *offenen* Bestellungen werden Lieferant und Kassierer aufgelistet. Durch angeforderte Bestellungsänderung durch den Kunden muss Kassierer die richtige Bestellung zur Änderung auswählen. Lieferanten sehen Bestellungen, um einige Bestellungen für die Lieferung auszuwählen. Anzeige von *Bestellungsnummer, Kunde, Kunden-ID, Groß- oder Normalbestellung, sowie deren Status*. Chef sieht alle Bestellungen.
+|Akteure                    |Mitarbeiter
+|Benötigte Funktionen       |<<F0001>>, <<F0310>>, <<F0501>>
+|===
+
+[[UC0210]]
+|===
+|ID                         |**<<UC0210>>**
+|Name                       |Bestellungen sortieren
+|Beschreibung               |Sortierfunktion der Bestellungen nach *Kundenname, Bestellungsnummer, Aufgebungsdatum, Liefermenge, Liefertermin*.
+|Akteure                    |Mitarbeiter
+|Benötigte Funktionen       |<<F0001>>, <<F0311>>, <<F0310>>
+|===
+
+[[UC0300]]
+|===
+|ID                         |**<<UC0300>>**
+|Name                       |Login/Logout
+|Beschreibung               |Nutzer können sich auf der Website authentifizieren (einloggen und ausloggen) mit ihrem Benutzernamen und Kennwort.
+|Akteure                    |Mitarbeiter
+|Benötigte Funktionen       |<<F0000>>, <<F0001>>, <<F0002>>
+|===
+
+[[UC0400]]
+|===
+|ID                         |**<<UC0400>>**
+|Name                       |Mitarbeiter anlegen
+|Beschreibung               |Chef kann Mitarbeiterkonto anlegen, die dem Getränkehandel neu beigetreten sind *(Mitarbeitername, Passwort, Adresse, E-Mail-Adresse)* und weist ihnen eine Gruppe zu.
+|Akteure                    |Chef
+|Benötigte Funktionen       |<<F0001>>, <<F0101>>, <<F0103>>, <<F0105>>
+|===
+
+[[UC0410]]
+|===
+|ID                         |**<<UC0410>>**
+|Name                       |Mitarbeiter löschen
+|Beschreibung               |Chef kann Mitarbeiter löschen.
+|Akteure                    |Chef
+|Benötigte Funktionen       |<<F0001>>, <<F0102>>
+|===
+
+[[UC0420]]
+|===
+|ID                         |**<<UC0420>>**
+|Name                       |Mitarbeiter einer Gruppe zuweisen
+|Beschreibung               |Der Chef kann/muss Mitarbeitern eine Gruppe (Kassierer, Chef, Lieferant) zuweisen, bzw. ändern.
+|Akteure                    |Chef
+|Benötigte Funktionen       |<<F0001>>, <<F0103>>
+|===
+
+[[UC0430]]
+|===
+|ID                         |**<<UC0430>>**
+|Name                       |Mitarbeiterkatalog ansehen
+|Beschreibung               |Der Chef kann sich alle Mitarbeiter des Getränkehandels anzeigen lassen.
+|Akteure                    |Chef
+|Benötigte Funktionen       |<<F0001>>, <<F0110>>
+|===
+
+[[UC0440]]
+|===
+|ID                         |**<<UC0440>>**
+|Name                       |Kunde anlegen
+|Beschreibung               |Der Akteur kann einen neuen Kunden in der Datenbank anlegen, welcher zukünftig im Getränkehandel einkaufen wird.
+|Akteure                    |Chef, Kassierer
+|Benötigte Funktionen       |<<F0001>>, <<F0701>>, <<F0502>>
+|===
+
+[[UC0450]]
+|===
+|ID                         |**<<UC0450>>**
+|Name                       |Kunde bearbeiten
+|Beschreibung               |Der Chef kann Kundendaten bearbeiten.
+|Akteure                    |Chef
+|Benötigte Funktionen       |<<F0001>>, <<F0702>>, <<F0502>>
+|===
+
+[[UC0460]]
+|===
+|ID                         |**<<UC0460>>**
+|Name                       |Kunde löschen
+|Beschreibung               |Der Chef kann Kunden aus der Datenbank entfernen.
+|Akteure                    |Chef
+|Benötigte Funktionen       |<<F0001>>, <<F0703>>
+|===
+
+[[UC0470]]
+|===
+|ID                         |**<<UC0470>>**
+|Name                       |Kundenliste anzeigen
+|Beschreibung               |Der Chef kann sich alle Kunden des Getränkehandels anzeigen lassen: *Kunden-ID, Vor- und Nachname, Adresse, Firma*.
+|Akteure                    |Chef
+|Benötigte Funktionen       |<<F0001>>, <<F0710>>
+|===
+
+[[UC0480]]
+|===
+|ID                         |**<<UC0480>>**
+|Name                       |Kunden anzeigen
+|Beschreibung               |Details zum Kunden anzeigen (inkl. aller Bestellungen)
+|Akteure                    |Chef
+|Benötigte Funktionen       |<<F0001>>, <<F0711>>
+|===
+
+[[UC0490]]
+|===
+|ID                         |**<<UC0490>>**
+|Name                       |Getränk hinzufügen
+|Beschreibung               |Der Chef hat ein neues Getränk für den Getränkehandel eingekauft und möchte dieses dem Sortiment hinzufügen. Auswahl von Name, Kategorie(n), Preis und Menge.
+|Akteure                    |Chef
+|Benötigte Funktionen       |<<F0001>>, <<F0201>>, <<F0208>>
+|===
+
+[[UC0500]]
+|===
+|ID                         |**<<UC0500>>**
+|Name                       |Lieferplan zusammenstellen
+|Beschreibung               |Der Lieferant sieht seine ausgewählten Bestellungen (inkl. Zeitplanung zum Ein-/Ausladen und Lieferdauer für jede Bestellung in Tabelle) und kann die Abfahrreihenfolge angeben (nummerisch).
+|Akteure                    |Lieferant
+|Benötigte Funktionen       |<<F0001>>, <<F0313>>, <<F0310>>, <<F0304>>, <<F0307>>
+|===
+
+[[UC0510]]
+|===
+|ID                         |**<<UC0510>>**
+|Name                       |Lieferung ausliefern
+|Beschreibung               |Der Lieferant beginnt mit der Auslieferung der Bestellung(en). Dabei werden ihre Status auf *UNTERWEGS* gesetzt.
+|Akteure                    |Lieferant
+|Benötigte Funktionen       |<<F0503>>
+|===
+
+[[UC0520]]
+|===
+|ID                         |**<<UC0520>>**
+|Name                       |Lieferung abschließen
+|Beschreibung               |Der Lieferant hat eine Bestellung ausgeliefert. Deren Status wird auf *ABGESCHLOSSEN* gesetzt.
+|Akteure                    |Lieferant
+|Benötigte Funktionen       |<<F0504>>
+|===
+
+[[UC0600]]
+|===
+|ID                         |**<<UC0600>>**
+|Name                       |Getränk dem Warenkorb hinzufügen
+|Beschreibung               |Die Person befindet sich im Getränkekatalog und fügt einen Artikel dem Warenkorb hinzu.
+|Akteure                    |Person
+|Benötigte Funktionen       |<<F0601>>
+|===
+
+[[UC0610]]
+|===
+|ID                         |**<<UC0610>>**
+|Name                       |Menge des Getränkes im Warenkorb ändern.
+|Beschreibung               |Eine Person befindet sich im Getränkekatalog und fügt Artikel dem Warenkorb hinzu.
+|Akteure                    |Person
+|Benötigte Funktionen       |<<F0601>>
+|===
+
+[[UC0640]]
+|===
+|ID                         |**<<UC0640>>**
+|Name                       |Warenkorb anzeigen
+|Beschreibung               |Eine Person befindet sich im Getränkekatalog und klickt auf das Warenkorb-Symbol. Die Warenkorb-Seite öffnet sich und zeigt die sich im Warenkorb befindlichen Artikel an.
+|Akteure                    |Person
+|Benötigte Funktionen       |<<F0610>>
+|===
+
+[[UC0650]]
+|===
+|ID                         |**<<UC0650>>**
+|Name                       |Kostenvoranschlag erstellen
+|Beschreibung               |Auf Basis des zusammengestellten Warenkorbs soll nun dem Akteur ein Kostenvoranschlag erstellt werden, welcher alle im Warenkorb befindlichen Artikel samt Stückzahl auflistet.
+|Akteure                    |Person
+|Benötigte Funktionen       |<<F0600>>
+|===
+
+[[UC1400]]
+|===
+|ID                         |**<<UC1400>>**
+|Name                       |Getränk löschen
+|Beschreibung               |Der Chef möchte ein Getränk aus dem Sortiment nehmen.
+|Akteure                    |Chef
+|Benötigte Funktionen       |<<F0001>>, <<F0202>>
+|===
+
+[[UC1410]]
+|===
+|ID                         |**<<UC1410>>**
+|Name                       |Bestand anzeigen
+|Beschreibung               |Der Akteur sieht den Bestand eines Getränks im Getränke-Katalog und auf der Getränkdetail-Seite.
+|Akteure                    |Person
+|Benötigte Funktionen       |<<F0001>>, <<F0206>>
+|===
+
+[[UC1420]]
+|===
+|ID                         |**<<UC1420>>**
+|Name                       |Bestellungen anzeigen vom Kunden
+|Beschreibung               |In der Kunde-Detailseite <<UC0480>> können in einer Tabelle die Bestellungen des Kunden angezeigt werden (analog zur Bestellungsliste).
+|Akteure                    |Chef
+|Benötigte Funktionen       |<<F0001>>, <<F0306>>
+|===
+
+[[UC1450]]
+|===
+|ID                         |**<<UC1450>>**
+|Name                       |Getränkebestand erhöhen/verringern
+|Beschreibung               |Die Menge eines Getränkes kann angezeigt (siehe <<UC1410>>) und geändert werden in der Details-Ansicht eines Getränkes <<UC0010>>, sowie auf der Statistiken-Seite.
+|Akteure                    |Chef
+|Benötigte Funktionen       |<<F0001>>, <<F0401>>, <<F0203>>, <<F0205>>, <<F0207>>
+|===
+
+[[UC1460]]
+|===
+|ID                         |**<<UC1460>>**
+|Name                       |Statistiken/Finanzen anzeigen
+|Beschreibung               |Dient der Anzeige von Geschäftsstatistiken, wie den Gehaltsabrechnungen der Mitarbeiter (monatliche, jährliche Einteilung) und Ausgaben für Getränke und eine Lagerübersicht. Außerdem kann schnell die Menge von Getränken erhöht werden.
+|Akteure                    |Chef
+|Benötigte Funktionen       |<<F0001>>, <<F0209_2>>, <<F0106>>, <<F0205>>
+|===
+
+== Sequenzdiagramme
+
+Der nachfolgende Abschnitt behandelt einige ausgewählte, komplexere Anwendungsfälle als Sequenzdiagramme, um einen besseren Überblick über das System zu erhalten.
+
+*Den Getränkekatalog anzeigen* <<UC0000>>
+
+Eine Person möchte Einblick in die aktuell verfügbaren Getränke erhalten. Der Chef als spezielle Person sieht dabei auch die Getränke, welche nicht mehr verfügbar sind.
+
+image::.\models\analysis\Sequenzdiagramm_UC0000_Getränkekatalog_anzeigen.jpg[Sequenzdiagramm: Getränkekatalog anzeigen, 100%, 100%, pdfwidth=100%, title="Sequenzdiagramm: Getränkekatalog anzeigen", align=center]
+
+
+*Bestellungsliste anzeigen* <<UC0200>>
+
+Es folgt das Sequenzdiagramm des Anwendungsfalls "Bestellungsliste anzeigen" (<<UC0200>>) aus Sicht des Akteurs Mitarbeiter, da dieser (im Gegensatz zum Chef) nur offene Bestellungen einsehen kann und deshalb der Anwendungsfall etwas komplexer ausfällt.
+
+
+image::.\models\analysis\Sequenzdiagramm_UC0200_Bestellungsliste_anzeigen_Mitarbeiter.jpg[Sequenzdiagramm: Bestellungsliste anzeigen; Akteur Mitarbeiter, 100%, 100%, pdfwidth=100%, title="Sequenzdiagramm: Bestellungsliste anzeigen; Akteur Mitarbeiter", align=center]
+
+
+*Kompletter Bestellvorgang* <<UC0600>>, <<UC0640>>, <<UC0610>>, <<UC0650>>, <<UC0100>>
+
+Dieses Sequenzdiagramm beinhaltet gleich sechs Anwendungsfälle und zeigt deren Zusammenspiel genau an. Ein Kunde fügt dem Warenkorb zwei Artikel hinzu (<<UC0600>>: 1-6), lässt sich den Warenkorb anzeigen (<<UC0640>>: 7, 8), möchte einen Artikel doch wieder entfernen, indem die Menge auf "0" gesetzt wird (<<UC0610>>: 9, 10) und muss die Menge ändern, wenn die Artikelmenge mindestens eines Artikels im Warenkorb den Lagervorrat übersteigt (<<UC0610>>: 14-16). Danach wird ein Kostenvoranschlag erstellt und angezeigt (<<UC0650>>: 17-20).
+Da der Kassierer auch diese selben Aktionen (1 bis 20) ausführen kann und auch muss, wurde er in diesen Schritten weggelassen. Die restlichen Punkte werden ausschließlich vom Kassierer durchgeführt. Der Kassierer erstellt die Bestellung und gibt bestellungsspezifische Details ein (wie die Kunden-ID, ob es sich um eine Eventbestellung handelt, Liefertermin und Lieferadresse, oder keine der Informationen, wenn es sich um einen "anonymen" Kunden handelt, der seine Ware direkt abholt) (<<UC0100>>, 21-37). Dabei kann es sein, dass sich in der Zwischenzeit der Bestand geändert hat (sei es durch einen anderen Kassierer, oder den Chef, welcher den Bestand verringerte). Die Bestellung wird als OFFEN gekennzeichnet, oder als ABGESCHLOSSEN, wenn der Kunde direkt im Handel die Ware abgeholt hat (30,31). Wenn die Validierung des Liefertermins (32) nicht erfolgreich geprüft wurde, muss der Kassierer diese anpassen und es wird erneut geprüft (33-35). Zum Schluss wird eine Erfolgsmeldung ausgegeben und die Bestellung im System gespeichert.
+
+image::.\models\analysis\Sequenzdiagramm_kompletter_Bestellvorgang.jpg[Sequenzdiagramm: kompletter Kaufvorgang, 100%, 100%, pdfwidth=100%, title="Sequenzdiagramm: kompletter Kaufvorgang", align=center]
+
+
+== Funktionale Anforderungen
+Im Folgenden werden die funktionalen Muss- und Kann-Kriterien des Systems in Tabellenform aufgezählt. Dabei ist die *ID* eine eindeutige Identifikationsnummer, welche im gesamten Projekt eindeutig und konsistent verwendet wird. Mit Hilfe der *Version* kann überprüft werden, ob sich die Beschreibung Funktionalität geändert hat. Die *Beschreibung* spricht für sich selbst. Die letzte Spalte gibt an, welche *Informationen seitens des Akteurs benötigt* werden von der jeweiligen Funktion, um korrekt ihre Aufgabe auszuführen.
+
+_Hinweis: Wenn nicht explizit der Akteur in der Beschreibung steht, soll das Kriterium durch alle Akteure der Software ausgeführt werden können. Akteure werden mit vererbt in der nummerischen Hierarchie._
+
+=== Muss-Kriterien
+[options="header", cols="2h, 1, 3, 16, 8"]
+|===
+|ID
+|Version
+|Name
+|Beschreibung
+|Benötigte Informationen
+
+|[[F0000]]<<F0000>>
+|0.1
+|Authentifizierung/Login
+|Die Software soll in öffentliche und privat zugreifbare Bereiche unterteilt werden. Dabei soll der Zugriff auf private Bereiche über eine Authentifizierung sichergestellt werden. Deshalb gilt bei allen folgenden Fällen die Überprüfung der Authentifizierung.
+a|
+- Benutzername
+- Passwort
+
+|[[F0001]]<<F0001>>
+|0.1
+|Überprüfe Authentifizierung
+|Muss immer sichergestellt werden, damit nicht jeder Akteur Zugriff auf alle Funktionen hat. Akteure sollen unterschiedliche Rechte entsprechend ihrer Rolle haben.
+a|
+
+|[[F0002]]<<F0002>>
+|0.1
+|Logout
+|Aktuell eingeloggten Mitarbeiter ausloggen.
+a|
+
+|[[F0100]]<<F0100>>
+|0.1
+|Mitarbeiter-Datenbank
+|Mitarbeiter sollen persistent gespeichert werden können.
+a|
+
+|[[F0101]]<<F0101>>
+|0.1
+|Mitarbeiter anlegen
+|Der Chef soll in der Lage sein, Mitarbeiter hinzuzufügen.
+a|- Mitarbeitername
+- Passwort
+- Adresse
+- E-Mail-Adresse
+
+|[[F0102]]<<F0102>>
+|0.1
+|Mitarbeiter löschen
+|Mitarbeiter sollen vom Chef aus der Datenbank gelöscht werden können.
+a|- Mitarbeiter-ID
+
+|[[F0103]]<<F0103>>
+|0.1
+|Mitarbeiter Gruppe zuweisen
+|Der Chef kann/muss den Mitarbeitern ihre Rolle (Lieferant, Kassierer, Chef) zuweisen können.
+a|- Mitarbeiter-ID
+- Gruppe
+
+|[[F0104]]<<F0104>>
+|0.1
+|Mitarbeiter-Daten ändern
+|Der Chef kann die Daten eines Mitarbeiters ändern. Name, Adresse, Telefonnummer, E-Mail-Adresse, Gehalt
+a|- Mitarbeiter-ID
+- zu ändernde Parameter
+
+|[[F0105]]<<F0105>>
+|0.1
+|Mitarbeiter-Name auf Existent prüfen
+|Mitarbeiter mit gleichem Namen dürfen nicht angelegt werden.
+a|- Mitarbeiter-Name
+
+|[[F0106]]<<F0106>>
+|0.1
+|Lohnübersichtstabelle ausgeben
+|Tabelle mit Arbeitsstunden, Stundenlohn und Lohn aller Mitarbeiter ausgeben.
+a|
+
+|[[F0110]]<<F0110>>
+|0.1
+|Mitarbeiter-Katalog anzeigen
+|Der Chef kann sich die Mitarbeiter auflisten lassen: Vor- und Nachname, Adresse, E-Mail-Adresse und Gruppenzugehörigkeit (Chef, Kassierer, Lieferant).
+a|
+
+|[[F0200]]<<F0200>>
+|0.1
+|Getränke-Datenbank
+|Getränke sollen persistent gespeichert werden.
+a|
+
+|[[F0201]]<<F0201>>
+|0.1
+|Getränk hinzufügen
+|Getränkesorte sollen der DB <<F0200>> hinzugefügt werden können durch den Chef.
+a|- Name des Getränkes
+- Anzahl
+
+|[[F0202]]<<F0202>>
+|0.1
+|Getränk löschen
+|Getränke sollen aus der DB <<F0200>> gelöscht werden können durch den Chef.
+a|- Name des Getränkes
+
+|[[F0203]]<<F0203>>
+|0.1
+|Bestand verringern
+|Zur Verringerung des Bestandes eines bestimmten Getränkes (beim Verkauf) durch Kassierer oder direkt durch Chef.
+a|- zu verringernde Menge
+
+|[[F0204]]<<F0204>>
+|0.1
+|Warnung bei niedrigem Bestand
+|Ausgabe des Getränkes, dessen Bestand gering (>=10) ist zum Nachbestellen für den Chef. Anzeige in Getränkeliste.
+a|
+
+|[[F0205]]<<F0205>>
+|0.1
+|Bestand erhöhen
+|Zur Erhöhung des Bestandes eines bestimmten Getränkes durch den Chef, bzw. Erhöhung indirekt durch Kassierer wenn Bestellung geändert <<F0302>> oder gelöscht <<F0303>> wird.
+a|- zu erhöhende Menge
+
+|[[F0206]]<<F0206>>
+|0.1
+|Bestand anzeigen
+|Zeigt Bestand eines Getränkes an.
+a|- Getränk
+
+|[[F0207]]<<F0207>>
+|0.1
+|Verfügbarkeit der Menge des Getränkes prüfen
+|Fehlermeldung ausgeben, wenn abzufragende Getränkemenge nicht mehr verfügbar ist.
+a|- Getränk
+- Menge
+
+|[[F0208]]<<F0208>>
+|0.1
+|Prüfen, dass Getränkename noch nicht existiert.
+|Fehlermeldung ausgeben, wenn schon in DB existiert.
+a|- Getränkename
+
+|[[F0209]]<<F0209>>
+|0.1
+|Weitere Details zum Getränk anzeigen.
+|Es werden weitere Informationen zum Getränk geladen.
+a|- Getränke-ID
+
+|[[F0209_2]]<<F0209_2>>
+|0.1
+|Lagerübersicht anzeigen
+|Eine Liste der Getränke im Lager mit Bestand und dem Datum des letzten Kaufs wird angezeigt. Zusätzlich gibt es die Möglichkeit, den Bestand zu erhöhen.
+a|
+
+|[[F0210]]<<F0210>>
+|0.1
+|Getränke-Katalog anzeigen
+|Dient der Auflistung aller Getränkesorten. Für den Chef sollen zusätzlich noch Bestände <<F0206>> und eine Warnung bei niedrigem Bestand <<F0204>> mit angezeigt werden. Nur der Chef soll auch Getränke sehen können, welche nicht mehr verfügbar <<F0206>> sind.
+a|
+
+|[[F0211]]<<F0211>>
+|0.1
+|Getränke-Katalog-Filter
+|Dient der Filterung nach bestimmten Kategorien.
+a|- Filterkategorie
+
+|[[F0212]]<<F0212>>
+|0.1
+|Getränke-Katalog-Suche
+|Dient der Suche nach bestimmten Kategorien.
+a|- Suchkriterium
+
+|[[F0213]]<<F0213>>
+|0.1
+|Getränke-Katalog sortieren
+|Dient der Sortierung nach bestimmten Kategorien.
+a|- Sortierkriterium
+
+|[[F0300]]<<F0300>>
+|0.1
+|Bestellungs-Datenbank
+|Zur Speicherung der Bestellungen.
+a|
+
+|[[F0301]]<<F0301>>
+|0.1
+|Bestellung erstellen
+|Anlegen einer Bestellung durch Kassierer. Eine Bestellung ist einem Kundenkonto zugeordnet.
+Bei Eventbestellung (Großbestellung) dies mit hinterlegen, da es Unterschiede bei der Bestellungsstornierung gibt.
+Bestand entsprechend verringern <<F0203>>.
+a|- Getränke
+- Menge
+- Liefertermin/-Adresse, oder Direktverkauf
+- Kunde
+- Großbestellung?
+
+|[[F0302]]<<F0302>>
+|0.1
+|Bestellung ändern
+|Kunden haben die Möglichkeit, durch den Kassierer ihre Bestellung zu ändern.
+Achtung: Prüfe auf Bestellungsänderung zulässig? <<F0307>>.
+Bei Änderung soll auch Bestand entsprechend angepasst werden <<F0205>> oder <<F0203>>.
+a|- Getränke
+- Menge
+- Liefertermin
+- Kunde
+
+|[[F0303]]<<F0303>>
+|0.1
+|Bestellung löschen
+|Kunden haben die Möglichkeit, durch den Kassierer ihre Bestellung zu löschen.
+Achtung: Prüfe auf Bestellungsänderung zulässig? <<F0307>>.
+a|- Bestellung
+
+|[[F0304]]<<F0304>>
+|0.1
+|Bestellung abschließen
+|Die Bestellung soll als *abgeschlossen* gelten, wenn Lieferant diese zur Fahrt auswählt hat. Durchführbar von Lieferanten.
+a|- Bestellung
+
+|[[F0306]]<<F0306>>
+|0.1
+|Bestellungen von Kunden anzeigen
+|Der Chef kann sich die Bestellungen von einem Kunden anzeigen lassen.
+a|- Kunden-ID
+
+|[[F0307]]<<F0307>>
+|0.1
+| Bestellungsänderung zulässig?
+a|Prüfe, ob Bestellung noch geändert, bzw. erst mal hinzugefügt und gelöscht werden kann, abhängig von:
+
+- dem Liefertermin und des aktuellen Datums bei Großbestellungen (Differenz nicht kleiner als 3 Tage) und
+
+- dem Status der Bestellung (abgeschlossene und stornierte Bestellungen können nicht mehr bearbeitet werden) <<F0308>>.
+a|- Bestellungs-ID
+
+|[[F0308]]<<F0308>>
+|0.1
+| Bestellungsstatus
+a|Gibt den Status der Bestellung zurück.
+a|- Bestellungs-ID
+
+|[[F0310]]<<F0310>>
+|0.1
+|Bestellungsliste anzeigen
+|Eine Liste, welche alle Bestellungen anzeigt, darunter Bestellungsnummer, Kunde, Kunden-ID, Groß- oder Normalbestellung, sowie deren Status. Einsehbar durch Chef, Lieferant, Kassierer.
+a|
+
+|[[F0311]]<<F0311>>
+|0.1
+|Bestellungen sortieren
+|Sortieren der Bestellungsliste nach Kriterien
+a|- Suchkriterium
+
+|[[F0313]]<<F0313>>
+|0.1
+|Lieferplan zusammenstellen
+|Lieferant bekommt Liste mit seinen ausgewählten Bestellungen angezeigt.
+a|- ausgewählte Lieferung(en) des aktuellen Tages
+
+|[[F0500]]<<F0500>>
+|0.1
+|Lieferzonen-Datenbank
+|Die Zonen-Datenbank beinhaltet die Lieferzonen, abzuleiten aus den Dresdner PLZ.
+a|
+
+|[[F0501]]<<F0501>>
+|0.1
+|Lieferzone zu einer PLZ ausgeben
+|Zu der angegebenen PLZ wird die Lieferzone ausgegeben. Wird später wie eine Filterfunktion verwendet, gilt aber als elementare Funktion, da keine weitere Anzeige der Zonen benötigt wird.
+a|- PLZ
+
+|[[F0502]]<<F0502>>
+|0.1
+|Gültigkeit der PLZ prüfen
+|Es wird geprüft, ob die angegebene PLZ eine gültige Dresdner PLZ ist.
+a|- PLZ
+
+|[[F0503]]<<F0503>>
+|0.1
+|Bestellungsstatus auf *UNTERWEGS* setzen.
+|Der Bestellungsstatus wird auf *UNTERWEGS* gesetzt.
+a|- Bestellungs-ID
+
+|[[F0504]]<<F0504>>
+|0.1
+|Bestellungsstatus auf *ABGESCHLOSSEN* setzen.
+|Der Bestellungsstatus wird auf *ABGESCHLOSSEN* gesetzt.
+a|- Bestellungs-ID
+
+|[[F0600]]<<F0600>>
+|0.1
+|Warenkorb
+|Beinhaltet die ausgewählten Getränke inkl. Menge des aktuellen Akteurs.
+a|
+
+|[[F0601]]<<F0601>>
+|0.1
+|Getränk dem Warenkorb hinzufügen
+|Dem Warenkorb wird ein Getränk hinzugefügt
+a| - Getränk
+- Menge
+
+|[[F0602]]<<F0602>>
+|0.1
+|Menge eines Getränkes im Warenkorb verringern
+|Im Warenkorb wird die Menge eines Getränkes verringert.
+a| - Getränk
+- Menge
+
+|[[F0603]]<<F0603>>
+|0.1
+|Menge eines Getränkes im Warenkorb erhöhen
+|Im Warenkorb wird die Menge eines Getränkes erhöht. Achtung: Jedoch nicht die Menge verringern, da Warenkorb-Artikel noch keine feste Bestellung ist.
+a| - Getränk
+- Menge
+
+|[[F0604]]<<F0604>>
+|0.1
+|Getränk aus Warenkorb löschen
+|Das Getränk wird aus dem Warenkorb gelöscht.
+a| - Getränk
+
+|[[F0610]]<<F0610>>
+|0.1
+|Warenkorb anzeigen
+|Alle Getränke des Warenkorbs werden aufgelistet, inkl. ihrer Stückzahl.
+a|
+
+|[[F0700]]<<F0700>>
+|0.1
+|Kundendatenbank
+|Beinhaltet alle Kunden des Getränkehandels
+a|
+
+|[[F0701]]<<F0701>>
+|0.1
+|Einen Kunden hinzufügen
+|Der Chef legt einen neuen Kunden im System an. Achtung: Prüfe auf PLZ-Gültigkeit <<F0502>>.
+a| - Vor- und Name
+- optional: Firma
+- Adresse (PLZ, Stadt: *Dresden*, Straße, Hnr)
+
+|[[F0702]]<<F0702>>
+|0.1
+|Einen Kunden bearbeiten
+|Der Kunde wird vom Chef bearbeitet. Achtung: Prüfe auf PLZ-Gültigkeit <<F0502>>.
+a| - Kunden-ID
+
+|[[F0703]]<<F0703>>
+|0.1
+|Einen Kunden löschen
+|Der Kunde wird vom Chef gelöscht.
+a| - Kunden-ID
+
+|[[F0710]]<<F0710>>
+|0.1
+|Kundenliste anzeigen
+|Alle Kunden werden dem Chef angezeigt: Kunden-ID, Vor- und Nachname, Adresse, Firma.
+a|
+
+|[[F0711]]<<F0711>>
+|0.1
+|Kunden anzeigen
+|Kunde wird dem Chef angezeigt. Mit allen Bestellungen <<F0306>>, Rechnungen <<F0401>>.
+a|- Kunden-ID
+
+|===
+
+
+=== Kann-Kriterien
+[options="header", cols="2h, 1, 3, 16, 8"]
+|===
+|ID
+|Version
+|Name
+|Beschreibung
+|Benötigte Informationen
+
+|[[F0312]]<<F0312>>
+|0.1
+|Bestellungen filtern
+|Filtern der Bestellungsliste nach Kriterien
+a|- Filterkategorie
+
+|[[F0400]]<<F0400>>
+|0.1
+|Rechnungsdatenbank
+|Dient der persistenten Speicherung von Rechnungen in einer DB.
+a|
+
+|[[F0401]]<<F0401>>
+u|0.1
+|Rechnungen vom Kunden anzeigen
+|Der Chef kann die Rechnungen von einem bestimmten Kunden anzeigen lassen.
+a|- Kunden-ID
+
+|[[F0410]]<<F0410>>
+|0.1
+|Rechnungen anzeigen
+|Chef kann sich alle Rechnungen direkt anzeigen lassen in einer Tabelle (inkl. Rechnungsnummer, Kundenname, Firma, Preis, Datum).
+a|
+
+|[[F0503]]<<F0503>>
+|0.1
+|Fahrtroute für Lieferanten erstellen
+|Automatische Zuordnung der Zonen zu dem Lieferanten nach ökologischen und ökonomischen Aspekten.
+a|
+
+|[[F0320]]<<F0320>>
+|0.1
+|Dauerauftrag erstellen
+|Periodische Aufträge, welche sich wöchentlich, monatlich wiederholen.
+a|- Periodizität
+
+|===
+
+== Nicht-Funktionale Anforderungen
+
+Der Folgende Abschnitt zeigt auf, welche Qualitätsziele die Software erfüllen soll und welche Anforderungn dazu an das System gestellt werden müssen.
+
+===  Qualitätsziele
+
+Die folgende Tabelle stellt besonders wichtige Qualitätsaspekte und deren Gewichtung dar.
+
+1 = weniger wichtig ..
+5 = sehr wichtig
+[options="header", cols="3h, ^1, ^1, ^1, ^1, ^1"]
+|===
+|Qualitätsziel            | 1 | 2 | 3 | 4 | 5
+|Wartungsfreundlichkeit   |   | x |   |   |
+|Erweiterbarkeit          |   |   |   | x |
+|Nutzbarkeit              |   |   |   | x |
+|Zuverlässigkeit          |   |   | x |   |
+|Sicherheit               |   |   |   | x |
+|Leistung                 | x |   |   |   |
+|Benutzerfreundlichkeit   |   |   | x |   |
+|===
+
+*Wartungsfreundlichkeit:*
+Auftretende Fehler sollen schnell behoben werden können.
+
+*Erweiterbarkeit:*
+Es soll möglich sein, dass das System auf Wunsch des Kunden durch Funktionalitäten erweitert werden kann.
+
+*Nutzbarkeit:*
+Alle Funktionalitäten des Systems müssen dazu dienen die Aufgabe die an das System gestellt wurde zu erfüllen.
+
+*Zuverlässigkeit:*
+Das System muss in der Lage sein Lange Zeiträume fehlerfrei zu laufen und gleichzeitig keine falschen Informationen zu produzieren.
+
+*Sicherheit:*
+Die Daten der Nutzer des Systems dürfen nicht offen zugänglich sein. Außerdem muss vermieden werden, dass das System nicht von anderen Nutzern als vorgesehen genutzt oder sogar manipuliert erden kann.
+
+*Leistung:*
+Das System muss so aufgebaut sein, dass es mit den Möglichkeiten des Kunden so schnell wie Möglich die gewünschten Aufgaben erfüllt. Nutzer des Systems sollen auf keinen Fall spürbare Wartezeiten bei der Nutzung der Website haben.
+
+*Benutzerfreundlichkeit:*
+Das System muss so einfach wie möglich nutzbar sein.
+
+
+===  Konkrete Nicht-Funktionale Anforderungen
+
+[options="header", cols="2h, 1, 3, 12"]
+|===
+|ID
+|Version
+|Name
+|Beschreibung
+
+|[[NF0010]]<<NF0010>>
+|v0.1
+|Wartungsfreundlichkeit - Testabdeckung
+|Auftretende Fehler sollen schnell zurück verfolgt werden können.
+
+|[[NF0020]]<<NF0020>>
+|v0.1
+|Erweiterbarkeit - "offenes Programmieren"
+|Funktionalitäten müssen offen programmiert werden.
+
+|[[NF0030]]<<NF0030>>
+|v0.1
+|Sicherheit - verschlüsselte Passwörter
+|Passwörter müssen in Verswchlüsselter Form
+
+|===
+
+== GUI Prototyp
+
+[[home_image]]
+image::.\models\design\GUI\Mockups\Startseite.png[Landing page, 50%, 50%, pdfwidth=50%, title= "Startseite", align=left]
+
+[[home_image]]
+image::.\models\design\GUI\Mockups\Aufträge.png[Landing page, 50%, 50%, pdfwidth=50%, title= "Aufträge", align=left]
+
+[[home_image]]
+image::.\models\design\GUI\Mockups\EinsichtAuftrage.png[Landing page, 50%, 50%, pdfwidth=50%, title= "Auftragseinsicht", align=left]
+
+[[home_image]]
+image::.\models\design\GUI\Mockups\Finanzen.png[Landing page, 50%, 50%, pdfwidth=50%, title= "Statistiken", align=left]
+
+[[home_image]]
+image::.\models\design\GUI\Mockups\Katalog.png[Landing page, 50%, 50%, pdfwidth=50%, title= "Katalog", align=left]
+
+[[home_image]]
+image::.\models\design\GUI\Mockups\Mitarbeiterbearbeitung.png[Landing page, 50%, 50%, pdfwidth=50%, title= "Mitarbeiter bearbeiten", align=left]
+
+[[home_image]]
+image::.\models\design\GUI\Mockups\Mitarbeiterliste.png[Landing page, 50%, 50%, pdfwidth=50%, title= "Mitarbeiterliste", align=left]
+
+[[home_image]]
+image::.\models\design\GUI\Mockups\Bestellformular.png[Landing page, 50%, 50%, pdfwidth=50%, title= "Formular zur Bestellungserstellung", align=left]
+
+[[home_image]]
+image::.\models\design\GUI\Mockups\Bestellungsliste.png[Landing page, 50%, 50%, pdfwidth=50%, title= "Bestellungsliste", align=left]
+
+[[home_image]]
+image::.\models\design\GUI\Mockups\Kundenliste.png[Landing page, 50%, 50%, pdfwidth=50%, title= "Kundenliste", align=left]
+
+[[home_image]]
+image::.\models\design\GUI\Mockups\Artikel.png[Landing page, 50%, 50%, pdfwidth=50%, title= "Artikel", align=left]
+
+[[home_image]]
+image::.\models\design\GUI\Mockups\Warenkorb.png[Landing page, 50%, 50%, pdfwidth=50%, title= "Warenkorb", align=left]
+
+
+===  Überblick: Dialoglandkarte
+
+[[home_image]]
+image::.\models\design\GUI\Dialoglandkarte\Dialoglandkarte.png[Landing page, 100%, 100%, pdfwidth=100%, title= "Dialoglandkarte", align=center]
+
+=== Dialogbeschreibung
+
+__Artikel__
+
+Das ist eine Ansicht eines bestimmten Artikels wenn man ihn im Katalog aufruft. Die Buttons "Aufstocken" und "Preis ändern" sind dabei nur für den Chef sichtbar. Für den Kunden steht nur ein Button "In Warenkorb" verfügbar.
+
+__Aufträge__
+
+Diese Seite dient den Mitarbeitern dazu, sich für offene Lieferungen einzutragen.
+
+__Bestellformular__
+
+Diese Seite wird durch einen Kassierer von dem Warenkorb aus via Button "Fortfahren" aufgerufen. Hier steht dem Kassierer zur Verfügung ob er einen bereits existierenden Kunden auswählen möchte oder die Daten manuell eingeben möchte.
+Ausserdem ist es möglich Eventbestellungen explizit zu kennzeichnen - wenn erforderlich.
+
+__Bestellungsliste__
+
+Die Bestellungsliste gibt einen Überblick über alle offenen Bestellungen für die Kassierer und den Chef.
+
+__Einsicht Bestellungen__
+
+Hier können die Mitarbeiter ihre Lieferungen einsehen und daraus entweder ihren eigenen Lieferplan erstellen, oder einen automatisch generieren lassen.
+
+__Statistiken__
+
+Hier kann der Chef alle (letzten) Ausgaben einsehen und den Lagerbestand aufstocken. Ausserdem werden hier die Löhne der Mitarbeiten in Form einer Tabelle angezeigt.
+
+__Katalog__
+
+Hier wird das Sortiment dem Kunden visuell dargestellt. Er hat die Möglichkeit die Artikel näher zu untersuchen (Artikel), und nach den Kategorien "Alkoholfrei" und "Alkohol" zu filtern. Er kann ausserdem die gewünschte Menge selbst einstellen via Regler.
+
+__Kundenliste__
+
+Eine Liste von allen angemeldeten Kunden, einsehbar von sowohl Chef als auch Kassierern.
+
+__Mitarbeiterbearbeitung__
+
+Hier kann der Chef die Mitarbeiterprofile bearbeiten, den Stundenlohn anpassen oder den betroffenen Mitarbeiter gar entlassen. (Stundenlohn wurde noch nicht dargestellt)
+
+__Mitarbeiterliste__
+
+Hier bekommt der Chef einen groben Überblick über sein im Moment eingestelltes Personal.
+
+__Startseite__
+
+Sowohl Kunden als auch Mitarbeiter oder Chef können sich über diese Seite einloggen bzw. registrieren. Diese Seite dient auch als "Home" - Seite.
+
+__Warenkorb__
+
+Hier werden alle vom Kunden ausgewählte Artikel zwischengespeichert und es wird darauf basierend ein Kostenvoranschlag gegeben. Der Button "Fortfahren" ist nur für Kassierer sichtbar und leitet zum Bestellformular weiter, wo die Rechnung des Warenkorbs des Kunden weiterverarbeitet werden kann.
+
+
+== Datenmodell
+
+=== Überblick: Klassendiagramm
+
+[[Analyseklassendiagramm]]
+image::.\models\analysis\Analyseklassendiagramm.jpg[Analyseklassendiagramm, 100%, 100%, pdfwidth=100%, title= "Analyseklassendiagramm von {project_name}", align=center]
+
+[[classes_enumerations]]
+=== Klassen und Enumerationen
+Dieser Abschnitt stellt eine Vereinigung von Glossar und der Beschreibung von Klassen/Enumerationen dar. Jede Klasse und Enumeration wird in Form eines Glossars textuell beschrieben. Zusätzlich werden eventuellen Konsistenz- und Formatierungsregeln aufgeführt.
+
+// See http://asciidoctor.org/docs/user-manual/#tables
+[options="header"]
+|===
+|Klasse/Enumeration |Beschreibung |
+|Artikel|Artikel sind Objekte aus dem Sortiment des Getränkehandels.|
+|Bestellung|Eine Bestellung wird von einem Kassierer auf Kundenwunsch erstellt.|
+|Bestellungsdatenbank|Die Bestellungsdatenbank beinhaltet alle Bestellungen und verwaltet diese.|
+|Chef|Der Chef ist die Person mit den höchstn Rechten. Er kann z.b. Mitarbeiter entlassen.|
+|Fahrer|Der Fahrer Liefert Bestellungen nach einem Lieferplan aus.|
+|Finanzmanagement|Das Finanzmanagement erstellt Statistiken, wie den Umsatz und verwaltet diese.|
+|Getränkehandel|Der Getränkehandel stellt die Firma Schluck&Sohn dar.|
+|Getränkekatalog|Der Getränkekatalog beinhaltet alle Artikel(Getränke) des Getränkehandels.|
+|Kalender|Der Kalender Speichert alle Auslieferungen zu ihrem Fälligkeitsdatum|
+|Kassierer|Der Kassierer nimmt Bestellungen entgegen und leitet diese an das System weiter.|
+|Kunde|Der Kunde gibt Bestellungen an die Kassiererin und kann die Website der Firma nutzen.|
+|Kundenmanagement|Das Kundenmanagement nimmt alle Kunden auf und verwaltet diese.|
+|Lieferadresse|Die Lieferadresse ist die Adresse, zu der eine Bestellung geliefert werden soll und beinhaltet eine Zone.|
+|Logistiksystem|Das Logistiksystem verwaltet die Aufträge für die Fahrer.|
+|Mitarbeiter|Mitarbeiter arbeiten für den Getränkehandel.|
+|Mitarbeitermanagement|Das Verwaltet die Mitarbeiter.|
+|Person|Personen sind Menschen, die modeliert werden.|
+|Warenkorb|Der Warenkorb kann vom Kunden erstellt werden und Beinhaltet Artikel die der Kunde Kaufen will, sowie einen Kostenvoranschlag|
+|Website|Die Website ist die Schnittstelle, über die Personen mit dem System kommunizieren.|
+|Zone|Eine Zone ist eine Verwaltungseinheit des Liefergebietes der Firma.|
+|Zustand|Der Zustand einer Bestellung zeigt an, ob diese aufgenommen aber nicht geliefert (OFFEN), ausgeliefert (ABGESCHLOSSEN), oder vom Kunden zurückgenommen (STORNIERT) wurde.|
+|===
+
+== Akzeptanztestfälle
+Mithilfe von Akzeptanztests wird geprüft, ob die Software die funktionalen Erwartungen und Anforderungen im Gebrauch erfüllt. Diese wurden aus den Anwendungsfallbeschreibungen und Sequenzdiagrammen abgeleitet.
+
+[cols="1h, 4"]
+|===
+|ID            |<<AT0000>>
+|Anwendungsfall      |<<UC0000>>
+|Vorbedingung        a|Eine Person befindet sich auf der Website des Getränkehandels.
+|Ereignis      a|Die Person klickt auf den Getränke-Katalog-Button.
+|Erwartetes Ergebnis    a|Es wird der Getränkekatalog mit seinen Artikeln aufgelistet.
+|===
+
+[cols="1h, 4"]
+|===
+|ID            |<<AT0000_1>>
+|Anwendungsfall      |<<UC0000>>, <<UC0001>>, <<UC0010>>
+|Vorbedingung        a|Eine Person sucht nach einem Artikel im Getränkekatalog, indem der Katalog nach den zur Verfügung stehenden Sortierkriterien sortiert wird.
+|Ereignis      a|Die Person klickt auf den gewünschten Getränkeeintrag.
+|Erwartetes Ergebnis    a|Es wird die Detailseite dieses Getränks angezeigt.
+|===
+
+[cols="1h, 4"]
+|===
+|ID            |<<AT0002>>
+|Anwendungsfall      |<<UC0002>>, <<UC0010>>, <<UC01450>>
+|Vorbedingung        a|Der Chef möchte sich den Bestand eines Artikels ändern im Getränkekatalog. Dabei filtert er diesen, um das gewünschte Getränk zu finden. Danach klickt er auf den gesuchten Eintrag.
+|Ereignis      a|Der Chef ändert den Bestand eines Getränkes. (>-1)
+|Erwartetes Ergebnis    a|Der neue Bestand wird nun angezeigt.
+|===
+
+[cols="1h, 4"]
+|===
+|ID            |<<AT0002_1>>
+|Anwendungsfall      |<<UC0002>>, <<UC0010>>, <<UC01450>>
+|Vorbedingung        a|Der Chef möchte sich den Bestand eines Artikels ändern im Getränkekatalog. Dabei filtert er diesen, um das gewünschte Getränk zu finden. Danach klickt er auf den gesuchten Eintrag.
+|Ereignis      a|Der Chef ändert den Bestand eines Getränkes. (<0)
+|Erwartetes Ergebnis    a|Es wird eine Fehlermeldung über den falsch eingegebenen neuen Bestand angezeigt. Der Chef bekommt die Möglichkeit, seine Eingabe zu korrigieren.
+|===
+
+[cols="1h, 4"]
+|===
+|ID            |<<AT0003>>
+|Anwendungsfall      |<<UC0003>>, <<UC0010>>, <<UC1400>>
+|Vorbedingung        a|Der Chef möchte ein Getränk aus dem Sortiment nehmen.
+|Ereignis      a|Dabei sucht er im Getränkekatalog nach dem gewünschten Getränk, indem der den Namen in das Suchfeld eingibt, klickt auf dessen Details-Seite und löscht das Getränk.
+|Erwartetes Ergebnis    a|Das gelöschte Getränk befindet sich nun nicht mehr im Getränkekatalog.
+|===
+
+[cols="1h, 4"]
+|===
+|ID            |<<AT0010>>
+|Anwendungsfall      |<<UC0010>>, <<UC1410>>
+|Vorbedingung        a|Eine Person möchte sich den Bestand eines Getränkes ansehen.
+|Ereignis      a|Dabei sucht sie im Getränkekatalog nach dem gewünschten Getränk.
+|Erwartetes Ergebnis    a|Der Bestand wird schon direkt im Getränkekatalog angezeigt.
+|===
+
+[cols="1h, 4"]
+|===
+|ID            |<<AT0100>>
+|Anwendungsfall      |<<UC0100>>
+|Vorbedingung        a|Ein Kassierer hat eine Bestellung erstellt.
+|Ereignis      a|Der Kassierer gibt die Bestellung in Auftrag.
+|Erwartetes Ergebnis    a|Es wird eine Erfolgsmeldung ausgegeben, die Bestellung im System gespeichert und der Bestand entsprechend der bestellten Menge eines jeden Artikels verringert.
+|===
+
+[cols="1h, 4"]
+|===
+|ID            |<<AT0100_1>>
+|Anwendungsfall      |<<UC0100>>
+|Vorbedingung        a|Ein Kassierer hat eine Bestellung erstellt und hat dabei einen Liefertermin ausgewählt, welcher vor dem Bestellungs-Erstellungsdatum (heutiges Datum) liegt.
+|Ereignis      a|Der Kassierer gibt die Bestellung in Auftrag.
+|Erwartetes Ergebnis    a|Es wird eine Fehlermeldung ausgegeben, dass ein ungültiger Liefertermin ausgewählt wurde und der Kassierer bekommt die Möglichkeit, diesen nochmals anzupassen.
+|===
+
+[cols="1h, 4"]
+|===
+|ID            |<<AT0110>>
+|Anwendungsfall      |<<UC0110>>
+|Vorbedingung        a|Es existiert mindestens eine Bestellung im System.
+|Ereignis      a|Ein Kassierer ändert den Liefertermin der Bestellung, wobei diese als OFFEN gilt.
+|Erwartetes Ergebnis    a|Die Änderungen wurden im System übernommen.
+|===
+
+[cols="1h, 4"]
+|===
+|ID            |<<AT0110_1>>
+|Anwendungsfall      |<<UC0110>>
+|Vorbedingung        a|Es existiert mindestens eine Bestellung im System.
+|Ereignis      a|Ein Kassierer ändert den Liefertermin der Bestellung/Großbestellung, wobei diese als *nicht OFFEN* gilt.
+|Erwartetes Ergebnis    a|Es wird eine entsprechende Fehlermeldung ausgegeben.
+|===
+
+[cols="1h, 4"]
+|===
+|ID            |<<AT0110_2>>
+|Anwendungsfall      |<<UC0110>>
+|Vorbedingung        a|Es existiert mindestens eine Bestellung im System.
+|Ereignis      a|Ein Kassierer ändert den Liefertermin der Großbestellung, wobei der Liefertermin in weniger als drei Tagen ist.
+|Erwartetes Ergebnis    a|Es wird eine entsprechende Fehlermeldung ausgegeben.
+|===
+
+[cols="1h, 4"]
+|===
+|ID            |<<AT0120>>
+|Anwendungsfall      |<<UC0120>>
+|Vorbedingung        a|Es existiert mindestens eine Bestellung im System.
+|Ereignis      a|Ein Kassierer möchte eine Bestellung löschen, die als OFFEN gilt.
+|Erwartetes Ergebnis    a|Die Änderungen werden im System übernommen. Die Menge der Artikel dieser Bestellung werden wieder dem Lager gutgeschrieben.
+|===
+
+[cols="1h, 4"]
+|===
+|ID            |<<AT0120_1>>
+|Anwendungsfall      |<<UC0120>>
+|Vorbedingung        a|Es existiert mindestens eine Bestellung im System.
+|Ereignis      a|Ein Kassierer möchte eine Bestellung/Großbestellung löschen, die als *nicht OFFEN* gilt.
+|Erwartetes Ergebnis    a|Es wird eine entsprechende Fehlermeldung ausgegeben.
+|===
+
+[cols="1h, 4"]
+|===
+|ID            |<<AT0200>>
+|Anwendungsfall      |<<UC0200>>, <<UC0210>>
+|Vorbedingung        a|Es existiert mindestens eine Bestellung im System.
+|Ereignis      a|Ein Mitarbeiter möchte die Bestellungsliste sortieren nach den gegebenen Parametern.
+|Erwartetes Ergebnis    a|Die Bestellungsliste wird entsprechend korrekt sortiert.
+|===
+
+[cols="1h, 4"]
+|===
+|ID            |<<AT0300>>
+|Anwendungsfall      |<<UC0300>>
+|Vorbedingung        a|Im System existieren Mitarbeiterkonten.
+|Ereignis      a|Ein unauthentifizierter Mitarbeiter loggt sich ein, indem er seinen Nutzernamen und Kennwort eingibt.
+|Erwartetes Ergebnis    a|Der Mitarbeiter ist nun authentifiziert und kann auf die seiner Rolle entsprechenden Funktionalitäten zugreifen.
+|===
+
+[cols="1h, 4"]
+|===
+|ID            |<<AT0300_1>>
+|Anwendungsfall      |<<UC0300>>
+|Vorbedingung        a|Ein authentifizierter Mitarbeiter nutzt das System.
+|Ereignis      a|Der Nutzer loggt sich aus.
+|Erwartetes Ergebnis    a|Der nun unauthentifizierte Mitarbeiter verliert den Zugang zu den seiner Rolle zugewiesenen Funktionalitäten.
+|===
+
+[cols="1h, 4"]
+|===
+|ID            |<<AT0400>>
+|Anwendungsfall      |<<UC0400>>, <<UC420>>, <<UC430>>
+|Vorbedingung        a|Der Chef möchte einen neuen Mitarbeiter-Account anlegen und nachträglich dessen Gruppe ändern.
+|Ereignis      a|Er legt einen neuen Mitarbeiter-Account an und ändert danach nochmals die Gruppenzugehörigkeit und speichert.
+|Erwartetes Ergebnis    a|Im Mitarbeiter-Katalog steht nun der neue Mitarbeiter-Account und die neu zugeordnete Gruppe wurde übernommen.
+|===
+
+[cols="1h, 4"]
+|===
+|ID            |<<AT0410>>
+|Anwendungsfall      |<<UC0410>>
+|Vorbedingung        a|Es existiert mindestens ein Mitarbeiter-Account im System.
+|Ereignis      a|Der Chef löscht einen Mitarbeiter-Account.
+|Erwartetes Ergebnis    a|Der Mitarbeiter-Account wurde aus dem System entfernt und der Mitarbeiter kann sich nicht mehr einloggen.
+|===
+
+[cols="1h, 4"]
+|===
+|ID            |<<AT0450>>
+|Anwendungsfall      |<<UC0450>>
+|Vorbedingung        a|Der Chef bearbeitet ein Kundenkonto.
+|Ereignis      a|Dabei trägt der Chef die zu ändernden Parameter ein und speichert.
+|Erwartetes Ergebnis    a|Das System hat die neuen Parameter des Kunden übernommen.
+|===
+
+[cols="1h, 4"]
+|===
+|ID            |<<AT0450_1>>
+|Anwendungsfall      |<<UC0450>>
+|Vorbedingung        a|Der Chef bearbeitet ein Kundenkonto.
+|Ereignis      a|Dabei trägt der Chef eine Postleizahl ein, welche keine gültige PLZ Dresdens ist. Er speichert den Kunden.
+|Erwartetes Ergebnis    a|Das System gibt ihm eine Fehlermeldung aus, dass eine ungültige PLZ eingetragen wurde und er bekommt die Möglichkeit, seine Eingabe zu korrigieren.
+|===
+
+[cols="1h, 4"]
+|===
+|ID            |<<AT0460>>
+|Anwendungsfall      |<<UC0460>>
+|Vorbedingung        a|Es existiert mindestens ein Kundenkonto im System.
+|Ereignis      a|Der Chef löscht ein Kundenkonto.
+|Erwartetes Ergebnis    a|Das angegebene Kundenkonto wurde aus dem System gelöscht.
+|===
+
+[cols="1h, 4"]
+|===
+|ID            |<<AT0470>>
+|Anwendungsfall      |<<UC0470>>, <<UC0440>>
+|Vorbedingung        a|Die Kundenliste ist geöffnet.
+|Ereignis      a|Der Chef legt einen neuen Kunden an.
+|Erwartetes Ergebnis    a|Der Kunde wird dem System hinzugefügt und in der Kundenliste angezeigt.
+|===
+
+[cols="1h, 4"]
+|===
+|ID            |<<AT0470_1>>
+|Anwendungsfall      |<<UC0470>>, <<UC0440>>
+|Vorbedingung        a|Die Kundenliste ist geöffnet.
+|Ereignis      a|Der Chef, bzw. Kassierer legt einen neuen Kunden an und vergisst dabei Parameter, oder gibt eine PLZ ein, welche keine gültige PLZ von Dresden ist.
+|Erwartetes Ergebnis    a|Es wird eine Fehlermeldung angezeigt und der Akteur bekommt die Möglichkeit, seine Eingabe zu überarbeiten.
+|===
+
+[cols="1h, 4"]
+|===
+|ID            |<<AT0480>>
+|Anwendungsfall      |<<UC0480>>
+|Vorbedingung        a|Es existiert mindestens ein Kundenkonto im System.
+|Ereignis      a|Der Chef klickt auf einen Kunden in der Kundenliste.
+|Erwartetes Ergebnis    a|Das angegebene Kundenkonto wird in der Detailansicht angezeigt.
+|===
+
+[cols="1h, 4"]
+|===
+|ID            |<<AT0490>>
+|Anwendungsfall      |<<UC0490>>
+|Vorbedingung        a|Der Getränkekatalog ist geöffnet.
+|Ereignis      a|Der Chef fügt dem Getränkehandel ein neues Getränk hinzu.
+|Erwartetes Ergebnis    a|Das Getränk wird dem System hinzugefügt.
+|===
+
+[cols="1h, 4"]
+|===
+|ID            |<<AT0490_1>>
+|Anwendungsfall      |<<UC0490>>
+|Vorbedingung        a|Der Getränkekatalog ist geöffnet.
+|Ereignis      a|Der Chef fügt dem Getränkehandel ein neues Getränk hinzu und trägt dabei einen Parameter nicht ein.
+|Erwartetes Ergebnis    a|Es wird eine Fehlermeldung angezeigt und der Chef bekommt die Möglichkeit, seine Angaben anzupassen.
+|===
+
+[cols="1h, 4"]
+|===
+|ID            |<<AT0500>>
+|Anwendungsfall      |<<UC0500>>, <<UC0510>>, <<UC0520>>
+|Vorbedingung        a|Der Lieferant hat die Liste mit den auszuliefernden Bestellungen für den heutigen Tag geöffnet (Bestellungsstatus *OFFEN*).
+|Ereignis      a|Der Lieferant wählt Bestellungen zur Auslieferung aus, Liefert diese aus (Bestellungsstatus *UNTERWEGS*) und gibt diese bei der hinterlegten Adresse ab (Bestellungsstatus *ABGESCHLOSSEN*). Der aktuelle Fortschritt wird von ihm immer eingetragen im Lieferplan.
+|Erwartetes Ergebnis    a|Die Bestellungsstati haben sich entsprechend des aktuellen Standes der Auslieferung geändert durch den Lieferanten und gelten letztendlich als *ABGESCHLOSSEN*.
+|===
+
+[cols="1h, 4"]
+|===
+|ID            |<<AT0600>>
+|Anwendungsfall      |<<UC0600>>, <<UC0610>>, <<UC0640>>
+|Vorbedingung        a|Eine Person befindet sich auf der Getränke-Katalog-Seite.
+|Ereignis      a|Die Person fügt dem Warenkorb ein Getränk hinzu und passt dessen Menge an.
+|Erwartetes Ergebnis    a|Das Getränk befindet sich nun im Warenkorb mit der angegebenen Menge.
+|===
+
+[cols="1h, 4"]
+|===
+|ID            |<<AT0600_1>>
+|Anwendungsfall      |<<UC0600>>, <<UC0610>>, <<UC0640>>
+|Vorbedingung        a|Eine Person befindet sich auf der Getränke-Katalog-Seite.
+|Ereignis      a|Die Person fügt dem Warenkorb ein Getränk hinzu und gibt eine Menge == 0 ein.
+|Erwartetes Ergebnis    a|Das Getränk wurde wieder aus dem Warenkorb entfernt.
+|===
+
+[cols="1h, 4"]
+|===
+|ID            |<<AT0600_2>>
+|Anwendungsfall      |<<UC0600>>, <<UC0610>>, <<UC0640>>
+|Vorbedingung        a|Eine Person befindet sich auf der Getränke-Katalog-Seite.
+|Ereignis      a|Die Person fügt dem Warenkorb ein Getränk hinzu und gibt eine Menge < 0 ein.
+|Erwartetes Ergebnis    a|Es wird eine Fehlermeldung angezeigt, dass der Bestand nicht kleiner als Null sein kann. Die Person kann ihre Eingabe korrigieren.
+|===
+
+[cols="1h, 4"]
+|===
+|ID            |<<AT0650>>
+|Anwendungsfall      |<<UC0650>>, <<UC0600>>, <<UC0100>>
+|Vorbedingung        a|Ein Kassierer hat für einen Kunden den Warenkorb zusammengestellt und dabei von keinem Artikel den Lagerbestand überschritten.
+|Ereignis      a|Der Kassierer lässt den Kostenvoranschlag erstellen und fügt anschließend die Bestellung dem System hinzu.
+|Erwartetes Ergebnis    a|Die Bestellung wurde dem System hinzugefügt und hat den Status *OFFEN*.
+|===
+
+[cols="1h, 4"]
+|===
+|ID            |<<AT0650_1>>
+|Anwendungsfall      |<<UC0650>>, <<UC0600>>
+|Vorbedingung        a|Ein Kassierer hat für einen Kunden den Warenkorb zusammengestellt und dabei von mindestens einem Artikel den Lagerbestand überschritten.
+|Ereignis      a|Der Kassierer lässt den Kostenvoranschlag erstellen.
+|Erwartetes Ergebnis    a|Es wird eine Fehlermeldung ausgegeben mit den Artikeln, von denen der verfügbare Bestand überschritten wurde. Der Mitarbeiter kann diesen danach anpassen.
+|===
+
+[cols="1h, 4"]
+|===
+|ID            |<<AT1420>>
+|Anwendungsfall      |<<UC0470>>, <<UC0480>>, <<UC1420>>
+|Vorbedingung        a|Der Chef hat die Kundenliste geöffnet.
+|Ereignis      a|Er wählt einen Kunden aus, von dem er sich die Bestellungsliste ansehen möchte.
+|Erwartetes Ergebnis    a|Es wird die Detail-Seite des Kunden geöffnet und in einer Tabelle alle Bestellungen dieses Kunden angezeigt.
+|===
+
+[cols="1h, 4"]
+|===
+|ID            |<<AT1460>>
+|Anwendungsfall      |<<UC1460>>, <<UC1450>>
+|Vorbedingung        a|Der Chef hat sich eingeloggt.
+|Ereignis      a|Er geht auf die Statistiken-/Finanzen-Seite, um sich diese anzeigen zu lassen.
+|Erwartetes Ergebnis    a|Die Seite öffnet sich.
+|===
+
+[cols="1h, 4"]
+|===
+|ID            |<<AT1460_1>>
+|Anwendungsfall      |<<UC1460>>, <<UC1450>>
+|Vorbedingung        a|Der Chef befindet sich auf der Statistiken-/Finanzen-Seite.
+|Ereignis      a|Er erhöht den Bestand mehrerer Artikel gleichzeitig.
+|Erwartetes Ergebnis    a|Der Bestand der zuvor ausgewählten Artikel wurde im System erhöht.
+|===
+
+
+== Glossar
+:stakeholder_ref: <<stakeholder, Stakeholders>>
+:actors_ref: <<actors, Akteure>>
+:dom_ref: <<classes_enumerations, Domänen-Modell>>
+Das Glossar enthält eine Liste von Begriffen, die in diesem Projekt verwendet werden und eine Beschreibung benötigen, um Missverständnisse zwischen den Beteiligten zu vermeiden. Weitere Begriffe werden bei den Abschnitten der {actors_ref}, der Beschreibung der {stakeholder_ref} und dem {dom_ref} näher beschrieben.
+
+:domain_ref: Siehe <<classes_enumerations, Klassenübersicht>>
+
+[options="header", cols="1h, 4"]
+[[glossar]]
+|===
+|Begriff |Beschreibung
+|Administrator|Synonym für den Chef
+|Artikel|{domain_ref}
+|Auftraggeber|Tutor Rolle des Auftraggebers
+|Bestand|Anzahl jeweiliger Getränke
+|Bestellung|{domain_ref}
+|Bestellungsdatenbank|{domain_ref}
+|Chef|{domain_ref}
+|Fahrer|{domain_ref}
+|Finanzmanagement|{domain_ref}
+|Getränkehandel|{domain_ref}
+|Getränkekatalog|{domain_ref}
+|Kalender|{domain_ref}
+|Kassierer|{domain_ref}
+|Kunde|{domain_ref}
+|Kundenmanagement|{domain_ref}
+|Lieferadresse|{domain_ref}
+|Login|Erfolgreiche Authentifizierung nach Eingabe der korrekten Anmeldeinformationen eines Benutzers
+|Logistiksystem|{domain_ref}
+|Mitarbeiter|{domain_ref}
+|Mitarbeitermanagement|{domain_ref}
+|Person|{domain_ref}
+|Registrieren|Anlegen eines neuen Mitarbeiter- bzw. Kundenkontos
+|Warenkorb|{domain_ref}
+|Website|{domain_ref}
+|Zone|{domain_ref}
+|Zustand|{domain_ref}
+|===

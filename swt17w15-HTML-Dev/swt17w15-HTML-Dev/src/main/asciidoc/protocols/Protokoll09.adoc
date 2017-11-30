@@ -1,0 +1,79 @@
+= Protokoll Gruppe 15
+
+Gruppeninternes Treffen am 06.11.2017
+
+Ort:      APB +
+Beginn:   14:50 Uhr +
+Ende:     16:50 Uhr
+
+__Schriftführer: Marcus Dawideit__
+
+*Nächstes Treffen:* +
+09.11.2017, 14:50 Uhr, APB
+
+__Teilnehmer:__
+//Tabellarisch oder Aufzählung, Kennzeichnung von Teilnehmern mit besonderer Rolle (z.B. Kunde)
+
+- Tony Fiedler (*SCRUM MASTER*)
+- Marcus Dawideit (*PROTOKOLLANT*)
+- An Dang Thanh
+- Leon Röscher
+- Pavel Tyulnev
+
+== Bemerkungen
+
+Nächstes Gruppeninternes Treffen: 07.11.2017.
+
+wichtige getroffene Entscheidungen:
+
+- sobald der Lieferant sich eine Bestellung/Lieferung zuweist, gilt diese als "UNTERWEGS" und ist somit nicht mehr stornierbar
+- die Zeit, die der Lieferant unterwegs wäre wird durch eine ablaufende Zeit simuliert
+- nach dieser Zeit geht der Zustand der Bestellung automatisch in den Zustand "ABGESCHLOSSEN"
+- via Businesstime
+
+- der Kunde unterscheidet sich nur in der "role" von den anderen, wird deshalb nicht durch eine extra Klasse dargestellt
+
+- eventuell gemeinsames Template für Prototypen mit Klassenschnittstellen und HTML-Template
+
+== Retrospektive des letzten Sprints
+
+|===
+|Issue |Titel |Beschreibung |Verantwortliche(r) |Status
+|#1     |Zu wenige Akzeptanztestfälle     |derzeit 8 Akzeptanztestfälle, mehr erforderlich            |Tony Fiedler                |fertig
+|#2|Entwurfsklassendiagramme erstellen (*MILESTONE*) |Analyse-Klassendiagramm in mehrere Entwurfs-Klassendiagramme überführen|alle|erste Klassen fertiggestellt
+|#3|Kontextdiagramm überarbeiten|mehr Interaktionen von den Akteuren ausgehend hinzufügen|Pavel Tyulnev|fast fertig
+|#4|Top-Level-Architektur überarbeiten|auf Grundlage des neuen Kontextdiagramms die T-L-A erstellen|Pavel Tyulnev|fast fertig
+|#6|Pflichtenheft: Produktnutzung: "Mitarbeiter kann Kunden-Konto anlegen" noch hinzufügen|(s. Titel) noch zu ergänzen|alle|fertig
+|#9|Analyse SalesPoint-Framework mit groben Funktionsbereichen|Die Hauptfunktionen des Getränkehandels wurden in grobe Teile untergliedert und den Projektteilnehmern zugeordnet. Es sollen die Implementierungsmöglichkeiten mit Hilfe des SalesPoint-Frameworks geprüft werden und Abhängigkeiten der Klassen untereinander bis Mo, 06.11..
+Außerdem soll jedes Gruppenmitglied benötigte Methoden aus den anderen Teilbereichen herausarbeiten, wenn notwendig.|alle|gemeinsame Schnittstellen definiert & tw. entworfen
+|===
+
+== Aktueller Stand
+
+Klassenentwurf für "Artikel", "Person", "Adresse" & "Mitarbeiter" komplett.
+
+Klassenschnittstellen bezüglich der Entwurfsklassendiagramme wurden definiert. Beispielsweise braucht die Bestellung einen Kunden, etc.
+
+Erste Entwürfe für einige Klassen der Entwurfsklassendiagrammteilabschnitte.
+
+== Planung des nächsten Sprints (bis zum 7.11.)
+
+*Bemerkung:* Issue referenziert die Issue ID von GitHub
+// See http://asciidoctor.org/docs/user-manual/=tables
+[option="headers"]
+|===
+|Issue |Titel |Beschreibung |Verantwortliche(r) |Status
+|#3!!!|Kontextdiagramm überarbeiten|mehr Interaktionen von den Akteuren ausgehend hinzufügen|Pavel Tyulnev|fast fertig
+|#4!!!|Top-Level-Architektur überarbeiten|auf Grundlage des neuen Kontextdiagramms die T-L-A erstellen|Pavel Tyulnev|fast fertig
+|#9|Analyse SalesPoint-Framework mit groben Funktionsbereichen (ff.)|Es wurden nun die Klassenschnittstellen definiert. Nun soll jeder individuell, falls es in seinem Teilabschnitt Klassen dieser Schnittstellen gibt, diese entwerfen. (Zuteilung s. unten)|alle|in Bearbeitung
+|===
+
+zu #9:
+
+Zuteilung:
+
+- __Leon Röscher__: Getränkemanagement
+- __Marcus Dawideit__: Bestellungsmanagement
+- __Pavel Tyulnev__: Logistikmanagement
+- __Tony Fiedler__: Mitarbeitermanagement
+- __An Dang Thanh__: Finanzmanagement

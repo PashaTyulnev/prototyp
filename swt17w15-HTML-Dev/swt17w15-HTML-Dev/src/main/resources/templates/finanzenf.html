@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+
+    <script th:src="@{/webjars/jquery/jquery.min.js}"
+            src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script th:src="@{/webjars/Semantic-UI/semantic.min.js}"
+            src="http://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.js"></script>
+   <link th:href="@{/webjars/Semantic-UI/semantic.min.css}" rel="stylesheet"
+          href="http://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.css" type="text/css"/>
+    <link th:href="@{/resources/css/bootstrap.min.css}" rel="stylesheet"
+          href="../static/resources/css/bootstrap.min.css" type="text/css"/>
+
+
+    <title th:text="Statistik">Statistik</title>
+</head>
+<body>
+<div class="ui container">
+    <header>
+        <h1 th:text="Finanzen">Finanzen</h1>
+    </header>
+    <nav th:include="navigation :: navigation"></nav>
+
+    <form class="ui form" th:action="@{/finanzbutton}" method="post">
+
+        <div class="field">
+            <label for="addTime">Zeit in Tagen vor- oder zurückspulen</label>
+            <input type="number" id="addTime" name="addTime" autofocus="autofocus"/> <br/>
+        </div>
+
+        <button type="submit" class="ui button" th:text="AddTime">AddTime</button>
+    </form>
+
+    <h1 th:name="Einnahmen">Einahmen</h1>
+    <h3 th:name="MonatlicheEinnahmen">Monatliche Einnahmen</h3>
+    <table class="ui celled table">
+        <thead>
+        <tr>
+            <th th:text="Datum">Datum</th>
+            <th th:text="|Monatliche Einnahmen|">Einnahmen</th>
+        </tr>
+        </thead>
+        <tbody th:remove="all-but-first">
+        <tr th:each=" item : ${einnahmen}">
+            <td th:text="|${item.key.dayOfMonth}. ${item.key.month} ${item.key.year}|">9000</td>
+            <td th:text="${item.value}">9000</td>
+        </tr>
+        <tr>
+            <td>Last Action Hero</td>
+            <td>9000</td>
+        </tr>
+        <tr>
+            <td>Last Action Hero</td>
+            <td>9000</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <h3 th:name="JährlicheEinnahmen">Jährliche Einnahmen</h3>
+    <table class="ui celled table">
+        <thead>
+        <tr>
+            <th th:text="Datum">Datum</th>
+            <th th:text="|Jährliche Einnahmen|" ></th>
+        </tr>
+        </thead>
+        <tbody th:remove="all-but-first">
+        <tr th:each=" item : ${jhrlicheeinnahmen}">
+            <td th:text="|${item.key.dayOfMonth}. ${item.key.month} ${item.key.year}|">9000</td>
+            <td th:text="${item.value}">9000</td>
+        </tr>
+        <tr>
+            <td>Last Action Hero</td>
+            <td>9000</td>
+        </tr>
+        <tr>
+            <td>Last Action Hero</td>
+            <td>9000</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <h1 th:name="Ausgaben">Ausgaben</h1>
+    <h3 th:name="MonatlicheAusgaben">Monatliche Ausgaben</h3>
+    <table class = "ui celled table">
+        <thead>
+        <tr>
+            <th th:text="Datum">Anzahl</th>
+            <th th:text="Gesamtgehälter">Anzahl</th>
+            <th th:text="Ausgaben">Anzahl</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each=" item : ${ausgaben}">
+            <td th:text="|${item.key.dayOfMonth}. ${item.key.month} ${item.key.year}|">9000</td>
+            <td th:text="${gesamtGehalt}">9000</td>
+            <td th:text="${item.value}">9000</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <h3 th:name="MonatlicheGesamtausgaben">Monatliche Gesamtausgaben</h3>
+    <table class = "ui celled table">
+        <thead>
+        <tr>
+            <th th:text="Datum">Anzahl</th>
+            <th th:text="|Gesamt Ausgaben|">Anzahl</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each=" item : ${gesamtAusgaben}">
+            <td th:text="|${item.key.dayOfMonth}. ${item.key.month} ${item.key.year}|">9000</td>
+            <td th:text="${item.value}">9000</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <form class="ui form" role="form" th:action="@{/ausgabeneintragen}" method="post">
+
+        <div class="field">
+            <label for="ausgabeneintragen">Eingeben</label>
+            <input type="number" id="ausgabeneintragen" name="ausgabeneintragen" autofocus="autofocus"/> <br/>
+        </div>
+
+        <button type="submit" class="ui button">Ausgaben hinzufügen</button>
+    </form>
+
+    <h1 th:name="Umsatz">Umsatz</h1>
+    <h3 th:name="MonatlicherUmsatz">Monatlicher Umsatz</h3>
+    <table class="ui celled table">
+        <thead>
+        <tr>
+            <th th:text="Datum">Datum</th>
+            <th th:text="|Monatlicher Umsatz|">Einnahmen</th>
+        </tr>
+        </thead>
+        <tbody th:remove="all-but-first">
+        <tr th:each=" item : ${monatlicherUmsatz}">
+            <td th:text="|${item.key.dayOfMonth}. ${item.key.month} ${item.key.year}|">9000</td>
+            <td th:text="${item.value}">9000</td>
+        </tr>
+        <tr>
+            <td>Last Action Hero</td>
+            <td>9000</td>
+        </tr>
+        <tr>
+            <td>Last Action Hero</td>
+            <td>9000</td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+ 
+	
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title th:text="#{customerscr.title}">Kunden anlegen</title>
+    <!-- Required meta tags -->
+    
+
+	<script th:src="@{/webjars/jquery/jquery.min.js}"
+            src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script th:src="@{/webjars/Semantic-UI/semantic.min.js}"
+            src="http://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.js"></script>
+    <link th:href="@{/webjars/Semantic-UI/semantic.min.css}" rel="stylesheet"
+          href="http://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.css" type="text/css"/>
+    <link th:href="@{/resources/css/bootstrap.min.css}" rel="stylesheet"
+          href="../static/resources/css/bootstrap.min.css" type="text/css"/>
+	<link th:href="@{/resources/css/style.css}" rel="stylesheet"
+          href="../static/resources/css/style.css" type="text/css"/>
+
+    
+</head>
+
+<body>
+	<nav th:include="navigation :: navigation"></nav>
+	<div class="container">
+		<h1 class="well" th:text="#{customerscr.title}">Kunden anlegen</h1>
+		<div class="col-lg-12 well">
+		<div class="row">
+	
+				
+		
+			
+				<form method="post" role="form" id="form" th:action="@{/kundenAnlegen}" th:object="${form}">		
+				<div class="alert alert-danger" th:if="${#fields.hasErrors('*')}">
+					<p>Einige Angaben sind nicht korrekt!</p>
+				</div>	
+			<div class="col-sm-12">			
+			<div class="row">
+				<div class="col-sm-6 form-group">
+					<label for="nachname" th:text="#{customer.lastname}">Nachname</label>
+					<input  id="nachname" placeholder="Nachname eingaben..." name="nachname" th:value="${nachname}" type="text" class="form-control" required="required"/><br/>
+				</div>
+				<div class="col-sm-6 form-group">
+					<label for="vorname" th:text="#{customer.firstname}">Vorname</label>
+					<input  id="vorname" placeholder="Vorname eingaben..." name="vorname" th:value="${vorname}" type="text" class="form-control" required="required"/><br/>
+				</div>
+			</div>
+		<div class="row">
+        <div class="col-sm-3 form-group">
+            <label for="plz" th:text="#{customer.postcode}">Postleitzahl</label>
+            <input id="plz" placeholder="Postleizahl eingeben..." name="plz" th:value="${plz}" type="text" class="form-control" required="required"/><br/>
+        </div>
+        <div class="col-sm-3 form-group">
+            <label for="stadt" th:text="#{customer.city}">Stadt</label>
+            <input id="stadt" placeholder="Stadt eingeben..." name="stadt" th:value="${stadt}" type="text" class="form-control" required="required"/><br/>
+        </div>
+        <div class="col-sm-4 form-group">
+            <label for="strasse" th:text="#{customer.street}">Straße</label>
+            <input id="strasse" placeholder="Straße eingeben..." name="strasse" th:value="${strasse}" type="text" class="form-control" required="required"/><br/>
+        </div>
+        <div class="col-sm-2 form-group">
+            <label for="nr" th:text="#{customer.nr}">Hausnummer</label>
+            <input id="nr" placeholder="Hausnummer eingeben..." name="nr" th:value="${nr}" type="text" class="form-control" required="required"/><br/>
+        </div>
+		</div>	
+        <div class="form-group">
+            <label for="zusatz" th:text="#{customer.extra}">Zusatz</label>
+            <input id="zusatz" placeholder="Zusätzliche Informationen..." name="zusatz" th:value="${zusatz}" type="text" class="form-control" /><br/>
+        </div>
+		<div class="row">
+			<div class="col-sm-6 form-group">
+				<label for="tel" th:text="#{customer.tel}">Telefonnummer</label>
+				<input id="tel" placeholder="Telefonnummer eingeben..." name="tel" th:value="${tel}" type="tel" class="form-control" /><br/>
+			</div>
+			<div class="col-sm-6 form-group">
+				<label for="email" th:text="#{customer.email}">E-Mail</label>
+				<input id="email" placeholder="E-Mail eingeben..." name="email" th:value="${email}" type="email" class="form-control" /><br/>
+			</div>
+		</div>	
+        <button type="submit" class="btn btn-success" th:text="#{customer.save}">Speichern</button>
+		</div>
+	</form>
+	</div>
+</div>
+</div>
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+	</body>
+</html>
